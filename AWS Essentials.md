@@ -1,3 +1,4 @@
+# Security
 ***AWS GuardDuty*** is a service that provides intelligent threat detection for your AWS infrastructure and resources. AWS GuardDuty identifies threats by continually monitoring the network activity and account behavior within your AWS environment.
 
 ***AWS Shield*** is a service that helps protect your applications against distributed denial-of-service (DDoS) attacks .
@@ -11,20 +12,14 @@
 # Cloud Trail
 With ***CloudTrail***, you can view a complete history of user activity and API calls for your applications and resources.  Events are typically updated in CloudTrail within 15 minutes after an API call was made. You can filter events by specifying the time and date that an API call occurred, the user who requested the action, the type of resource that was involved in the API call, and more.
 
+
 ***AWS CloudTrail*** is a service that primarily tracks governance, compliance, operational auditing, and risk auditing of your AWS account. CloudTrail logs continuously monitors, and retains account activity related to actions across all AWS infrastructure. CloudTrail provides event history of AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history simplifies security analysis, resource change tracking, and troubleshooting.
 
 # AWS CloudWatch 
 ***Amazon CloudWatch*** is a service that provides data that you can use to monitor your applications, optimize resource utilization, and respond to system-wide performance changes.
 
 An alarm in ***AWS CloudWatch*** that triggers after exceeding the bill will not meet the requirements of staying within the desired budget. The alarm triggers when the account billing exceeds the threshold specified. It triggers only when actual billing exceeds the threshold.
-# AWS Trusted Advisor
-***AWS Trusted Advisor*** is an online tool that inspects your AWS environment and provides real-time guidance in accordance with AWS best practices.
 
->*Enterprise and Business* Support plans include access to all AWS Trusted Advisor checks. The *Basic and Developer* Support plans provide access to a limited selection of AWS Trusted Advisor checks.
-
-***AWS Trusted Advisor*** also helps improve the performance of your services by providing recommendations for how to take advantage of provisioned throughput.
-
->Trusted Advisor provide best practices and/or or checks on *Cost Optimization, Performance, Security, and Fault Tolerance.*
 # Global Infrastructure
 ***Availability Zone*** is a single data center or a group of data centers within a Region.  Availability Zones are located tens of miles apart from each other. This helps them to provide interconnectivity to support the services and applications that run within a Region.
 >There are at least *3 Availability Zones* per AWS Region. Some regions may contain more.
@@ -41,14 +36,14 @@ A *Distribution* is made up of Edge Locations that you want to serve content fro
 >There are at least 3 Availability Zones per AWS Region. Some regions may contain more.
 # Plans
 The ***AWS Free Tier*** is not a Support plan. It is a program that consists of three types of offers that allow customers to use AWS services without incurring costs: Always free, 12 months free, and Trials.
-
+#
 ***Amazon Route 53*** is a DNS web service. It gives developers and businesses a reliable way to route end users to internet applications that are hosted in AWS. Additionally, you can transfer DNS records for existing domain names that are currently managed by other domain registrars, or register new domain names directly within Amazon Route 53.
 
 >***AWS Artifact*** is a service that enables you to access AWS security and compliance reports and special online agreements.
 ***AWS Artifact*** is a comprehensive resource center for access to AWS’ auditor issued reports as well as security and compliance documentation from several renowned independent standards organisations.
 
 >Automate the deployment of workloads into your AWS environment  ***AWS Quick Starts***.
-
+#
 ***Refactoring*** is migration strategy involves changing how an application is architected and developed, typically by using cloud-native features.
 
 ***Repurchasing*** involves replacing an existing application with a cloud-based version, such as software found in AWS Marketplace.
@@ -80,13 +75,6 @@ In the ***S3 Intelligent-Tiering*** storage class, Amazon S3 monitors objects’
 **S3 Intelligent-Tiering** is the first cloud object storage class that delivers automatic cost savings by moving data between two access tiers — frequent access and infrequent access — when access patterns change, and is ideal for data with unknown or changing access patterns.S3 Intelligent-Tiering stores objects in two access tiers: one tier that is optimized for frequent access and another lower-cost tier that is optimized for infrequent access. For a small monthly monitoring and automation fee per object, S3 Intelligent-Tiering monitors access patterns and moves objects that have not been accessed for 30 consecutive days to the infrequent access tier. There are no retrieval fees in S3 Intelligent-Tiering. If an object in the infrequent access tier is accessed later, it is automatically moved back to the frequent access tier. No additional tiering fees apply when objects are moved between access tiers within the S3 Intelligent-Tiering storage class. S3 Intelligent-Tiering is designed for 99.9% availability and 99.999999999% durability, and offers the same low latency and high throughput performance of S3 Standard.
 
 >**Amazon S3 Transfer Acceleration** enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket. Transfer Acceleration takes advantage of Amazon CloudFront’s globally distributed edge locations. As the data arrives at an edge location, data is routed to Amazon S3 over an optimized network path.
-# 
-You upload your application, and ***Elastic Beanstalk*** automatically handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring.
-
->***AWS Outposts*** is a service that enables you to run infrastructure in a hybrid cloud approach.
-
->***AWS Snowball*** is a device that enables you to transfer large amounts of data into and out of AWS.
-
 
 
 # Well Architected Frame Work
@@ -103,10 +91,6 @@ In ***AWS Organizations***, you can centrally control permissions for the accoun
 
 ***AWS Organizations*** allows the user to automate the creation of new AWS accounts when they need to quickly launch new workloads. The administrator can add these new accounts to user-defined groups in an organization for easy categorization. For example, you can create separate groups to categorize development and production accounts, and then apply a Service Control Policy (SCP) to the production group allowing only access to AWS services required by production workloads.
 
-#
-***AWS Identity and Access Management (IAM)*** is a service that you can use to manage access to AWS services and resources. 
-
->***AWS Key Management Service (AWS KMS)*** enables you to create, manage, and use cryptographic keys.
 
 # Networking
 A virtual private gateway enables you to establish a virtual private network (VPN) connection between your VPC and a private network, such as an on-premises data center or internal corporate network.
@@ -126,11 +110,15 @@ A ***security group*** is a virtual firewall that controls inbound and outbound 
 
 A ***NAT Gateway*** is required to allow resources in a private subnet to access the internet. Route tables tell traffic where it should go next to reach its destination, but don't actually process or transmit traffic. 
 
-#
+# Transfer
 ***AWS Direct Connect*** is a service that enables you to establish a dedicated private connection between your data center and VPC.  The private connection that AWS Direct Connect provides helps you to reduce network costs and increase the amount of bandwidth that can travel through your network.
 
 ***AWS Snowball*** is a device that enables you to transfer large amounts of data into and out of AWS.
 AWS Snowmobile is a service that is used for transferring up to 100 PB of data to AWS. Each Snowmobile is a 45-foot long shipping container that is pulled by a semi-trailer truck. 
+
+>***AWS Outposts*** is a service that enables you to run infrastructure in a hybrid cloud approach.
+
+>***AWS Snowball*** is a device that enables you to transfer large amounts of data into and out of AWS.
 
 
 The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple AWS services directly from the command line within one tool. For example, you can use comands to start an Amazon EC2 instance, connect an Amazon EC2 instance to a specific Auto Scaling group, and more. The AWS CLI is available for users on Windows, macOS, and Linux.
@@ -190,6 +178,8 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 
 >when an RDS Master database in a Multi-AZ deployment goes down RDS automatically fails over to the standby, which is promoted to Master.
 
+>***Read replicas*** will enhance the database performance and durability by allowing for automated distribution of load amongst several database instances with the exact copy of the parent database.
+
 
 # Compute
 
@@ -201,8 +191,12 @@ A service that monitors your applications and automatically adds or removes capa
 
 ***vertical scaling(scaling up)*** adds more resources to an instance and horizontal scaling(scaling out) adds more instances.
 
+***AWS Lambda*** is a service that lets you run code without needing to provision or manage servers. While using AWS Lambda, you pay only for the compute time that you consume. You are charged only when your code is running. With AWS Lambda, you can run code for virtually any type of application or backend service, all with zero administration. 
+
 Leveraging ***AWS Lambda functions*** will remove the need to run a dedicated web server for the organisation. During periods of high requests to the database cluster, AWS lambda backend infrastructure will automatically scale out resources to adequately meet the demand. AWS Lambda provides a platform to run code without provisioning or managing any servers. The organisation pays only for the compute time they consume – there is no charge when your code is not running.
 >***AWS Lambda*** is a service that lets you run code without provisioning or managing servers.
+
+A ***load balancer*** acts as a single point of contact for all incoming web traffic to your Auto Scaling group. This means that as Amazon EC2 instances are added or removed in response to the amount of incoming traffic, these requests are routed to the load balancer first and then spread across multiple resources that will handle them
 
 >The ***Classic loadbalancer*** uses a Round-Robin strategy for TCP listeners only.The ALB 1st selects a target based on the routing rule, then uses a Round-Robin strategy to select a node.
 
@@ -210,7 +204,14 @@ Leveraging ***AWS Lambda functions*** will remove the need to run a dedicated we
 
 ***AWS Personal Health Dashboard*** that focuses on the performance and availability of your AWS services so that you can respond accordingly. it displays their general status. The AWS Personal Health Dashboard publishes alerts and remediation guidance when issues with AWS services arise. Notifications are also provided for scheduled events that may impact AWS customers.
 
-***Trusted Advisor*** provide best practices and/or or checks on Cost Optimization, Performance, Security, and Fault Tolerance. 
+***AWS Trusted Advisor*** is an online tool that inspects your AWS environment and provides real-time guidance in accordance with AWS best practices.
+
+>*Enterprise and Business* Support plans include access to all AWS Trusted Advisor checks. The *Basic and Developer* Support plans provide access to a limited selection of AWS Trusted Advisor checks.
+
+***AWS Trusted Advisor*** also helps improve the performance of your services by providing recommendations for how to take advantage of provisioned throughput.
+
+>Trusted Advisor provide best practices and/or or checks on *Cost Optimization, Performance, Security, and Fault Tolerance.*
+
 
 - To improve the ***performance*** of your services by providing recommendations for how to take advantage of provisioned throughput.
 
@@ -220,8 +221,80 @@ Leveraging ***AWS Lambda functions*** will remove the need to run a dedicated we
 
 - The ***Fault Tolerance*** category includes checks to help you improve your applications’ availability and redundancy.
 
+# Manager
+
+***AWS Systems Manager*** allows users to gain control of their AWS resources by unifying services into a user interface. One in which they can be able to view, automate and monitor operational tasks.
+
+***Resource Access Manager (AWS RAM)*** allows users to share resources with other AWS accounts or via AWS Organizations. AWS RAM can be used to collate a set of AWS resources across multiple AWS
+accounts in order to share capacity.
+
+The ***AWS Certificate Manager*** allows the web administrator to maintain one or several SSL/TLS certificates, both private and public certificates, including their update and renewal such that the administrator does not worry about imminent expiry of certificates.
+
+AWS ***Lifecycle Manager*** serves the purpose of creating lifecycle policies for specified resources in order to automate operations.
+
+AWS ***License Manager*** serves the purpose of differentiating, maintaining third-party software provisioning vendor licenses as well as decreases the risk of license expirations and the penalties.
+
+AWS ***Firewall Manager*** aids in the administration of Web Application Firewall (WAF), by presenting a centralised point of setting firewall rules across different web resources.
+
+A resource that provides guidance, architectural reviews, and ongoing communication with your company as you plan, deploy, and optimize your applications - ***Technical Account Manager (TAM).*** 
 
 
+# Code 
 
+***AWS CodeCommit*** is a managed source control service that can be used as a data store to store source code, binaries, scripts, HTML pages and images which are accessible over the internet. CodeCommit encrypts files in transit and at rest.
 
+***AWS CodeStar*** provides a unified user interface, enabling you to easily manage your software development activities in one place. With AWS CodeStar, you can set up your entire continuous delivery toolchain in minutes, allowing you to start releasing code faster. AWS CodeStar makes it easy for your whole team to work together securely, allowing you to easily manage access and add owners, contributors, and viewers to your projects.
 
+***AWS CodeDeploy*** is a deployment service that allows developers to automate the installation of applications to hosts, Amazon EC2 instances, Amazon ECS instances, serverless Lambda functions or even on-premises servers. AWS CodeDeploy can enable the update of those applications.
+
+***AWS X-Ray*** helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture. With X-Ray, developers can understand how the application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors. X-Ray provides an end-to-end view of requests as they travel through an application, and shows a map of an application’s underlying components.
+
+# Advanced
+
+***AWS OpsWorks*** provides a fully managed configuration automation and management service of Chef and Puppet. These platforms will allow for the use of code to automate the configuration of the EC2 instances, including replication as stated in the scenario. With Chef and Puppet, OpsWorks allows for the automation of how servers are configured, deployed, and managed across Amazon EC2 instances or on-premises compute environments.
+
+***Amazon Rekognition*** enables the uptake of imagery and video for analysis in applications. By uploading imagery or video footage to the Rekognition API, the service engine would then identify and distinguish facial features, text, objects and activities. This service will meet the requirements of the scenario as an access control solution.
+
+The entire concept of ***decoupling components*** is to ensure that the different components of an applications can be managed and maintained separately. If all components are tightly coupled then when one component goes down , the entire application would do down. Hence it is always a better design practice to decouple application components.
+
+***Amazon QuickSight*** is the most appropriate service to utilise in the scenario, it is a fully-managed service that allows for insightful business intelligence reporting, with creative methods of data delivery including graphical and interactive dashboards. QuickSight includes machine learning which allows users to discover inconspicuous trends and patterns on their datasets.
+
+***AWS CloudFormation*** provides templates to specify all the AWS resources needed by the testing environments. These templates can be instantiated as stacks to provision consistent environments every time one is needed.
+
+>Provision resources by using programming languages or a text file - AWS CloudFormation.
+
+You upload your application, and ***Elastic Beanstalk*** automatically handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring.
+
+***Amazon EKS*** is a fully managed service that you can use to run Kubernetes on AWS. Kubernetes is open-source software that enables you to deploy and manage containerized applications at scale. Containers provide you with a standard way to package your application's code and dependencies into a single object. Containers are frequently used for processes and workflows in which there are essential requirements for security, reliability, and scalability.
+
+***Amazon Augmented AI (Amazon A2I)*** provides built-in human review workflows for common machine learning use cases, such as content moderation and text extraction from documents. With Amazon A2I, you can also create your own workflows for machine learning models built on AmazonA2I
+
+>***Amazon SageMaker*** is a service that enables you to quickly build, train, and deploy machine learning models.***AWS DeepRacer*** is an autonomous 1/18 scale race car that you can use to test reinforcement learning models.
+
+# Perspective
+
+The ***Operations Perspective*** of the AWS Cloud Adoption Framework also includes principles for operating in the cloud by using agile best practices.
+
+The ***Business Perspective*** helps you to move from a model that separates business and IT strategies into a business model that integrates IT strategy.
+
+The ***People Perspective*** helps Human Resources (HR) employees prepare their teams for cloud adoption by updating organizational processes and staff skills to include cloud-based competencies.
+
+The ***Governance Perspective*** helps you understand how to update the staff skills and organizational processes that are necessary to ensure business governance in the cloud.
+
+# Resource And Service
+
+>You can use ***AWS Marketplace*** to find, test, and buy software that runs on AWS. A digital catalog that includes thousands of software listings from independent software vendors.
+
+A resource that can answer questions about best practices and assist with troubleshooting issues -  ***AWS Support***.
+
+The ***AWS Resource Center*** a repository of tutorials, whitepapers, digital trainings and project Use cases that aid in learning the core concepts of Amazon Web Services.
+
+***AWS Directory Service*** is an AWS tool that provides multiple ways to use Amazon Cloud Directory and Microsoft Active Directory with other AWS services
+
+***Amazon Cognito web identity federation*** service acts as a broker that allows successfully authenticated users access to AWS resources. After successful authentication on platforms such as Facebook, LinkedIn or Google – users are awarded temporary authentication code from Amazon Cognito thereby gaining temporary access.
+
+***Resource Tags*** are user-defined label that has a key-value pair of variable character length. It is assigned to AWS resources as metadata for administration and management purposes.
+
+***AWS Identity and Access Management (IAM)*** is a service that you can use to manage access to AWS services and resources. 
+
+>***AWS Key Management Service (AWS KMS)*** enables you to create, manage, and use cryptographic keys.
