@@ -7,6 +7,7 @@
 
 >A service that lets you monitor network requests that come into your web applications - ***AWS WAF***.
 
+***AWS Web Application Firewall (WAF)*** is a web-based application that allows for monitoring of ingress and egress traffic on provisioned web services. These could be in an AWS CloudFront distribution, behind an AWS Load Balancer or standalone instance. AWS WAF includes AWS Shield (AWS Shield Standard that comes at no additional cost and AWS Shield Advanced, on subscription) that protects against SYN floods, DNS query floods and UDP reflection attacks amongst others.
 
 
 # Cloud Trail
@@ -33,10 +34,13 @@ A *Distribution* is made up of Edge Locations that you want to serve content fro
 
 ***Amazon CloudFront*** is a content delivery service. It uses a network of edge locations to cache content and deliver content to customers all over the world. When content is cached, it is stored locally as a copy. This content might be video files, photos, webpages, and so on.
 
+>Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users. 
+
 # Plans
 The ***AWS Free Tier*** is not a Support plan. It is a program that consists of three types of offers that allow customers to use AWS services without incurring costs: Always free, 12 months free, and Trials.
 #
 ***Amazon Route 53*** is a DNS web service. It gives developers and businesses a reliable way to route end users to internet applications that are hosted in AWS. Additionally, you can transfer DNS records for existing domain names that are currently managed by other domain registrars, or register new domain names directly within Amazon Route 53.
+>In Amazon Route53 any alterations made to record sets in hosted zones will take the duration of the set Time to live (TTL) before they can reflect. However, flushing of the local DNS and browser cache will prompt a new query to the Route53 hosted zone thereby giving the new changes.
 
 >***AWS Artifact*** is a service that enables you to access AWS security and compliance reports and special online agreements.
 ***AWS Artifact*** is a comprehensive resource center for access to AWS’ auditor issued reports as well as security and compliance documentation from several renowned independent standards organisations.
@@ -44,6 +48,8 @@ The ***AWS Free Tier*** is not a Support plan. It is a program that consists of 
 >Automate the deployment of workloads into your AWS environment - ***AWS Quick Starts***.
 #
 ***Refactoring*** is migration strategy involves changing how an application is architected and developed, typically by using cloud-native features.
+
+***AWS Database Migration*** Service helps you migrate databases to AWS quickly and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database. The AWS Database Migration Service can migrate your data to and from most widely used commercial and open-source databases.
 
 ***Repurchasing*** involves replacing an existing application with a cloud-based version, such as software found in AWS Marketplace.
 
@@ -164,6 +170,8 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 
 ***Amazon DynamoDB*** is a key-value database service. A key-value database might include data pairs such as “Name: John Doe,” “Address: 123 Any Street,” and “City: Anytown”. In a key-value database, you can add or remove attributes from items in the table at any time. Additionally, not every item in the table has to have the same attributes.  
 
+***Amazon Aurora (Aurora)*** is a fully managed, MySQL- and PostgreSQL-compatible, relational database engine. It combines the speed and reliability of high-end commercial databases with the simplicity and cost-effectiveness of open-source databases. It delivers up to five times the throughput of MySQL and up to three times the throughput of PostgreSQL without requiring changes to most of your existing applications.
+
 >Amazon Aurora is an enterprise-class relational database.Aurora is AWS' managed database service that is up to 5X faster than a traditional MySQL database.
 
 >Amazon Relational Database Service (Amazon RDS) and Amazon Aurora use structured query language (SQL) to store and query data. They are not key-value databases.
@@ -189,6 +197,8 @@ A service that monitors your applications and automatically adds or removes capa
 
 >***vertical scaling(scaling up)*** adds more resources to an instance and ***horizontal scaling(scaling out)*** adds more instances.
 
+>The concept of ***Elasticity*** is the means of an application having the ability to scale up and scale down based on demand. An example of such a service is the Autoscaling service.
+
 ***AWS Lambda*** is a service that lets you run code without needing to provision or manage servers. While using AWS Lambda, you pay only for the compute time that you consume. You are charged only when your code is running. With AWS Lambda, you can run code for virtually any type of application or backend service, all with zero administration. 
 
 Leveraging ***AWS Lambda functions*** will remove the need to run a dedicated web server for the organisation. During periods of high requests to the database cluster, AWS lambda backend infrastructure will automatically scale out resources to adequately meet the demand. AWS Lambda provides a platform to run code without provisioning or managing any servers. The organisation pays only for the compute time they consume – there is no charge when your code is not running.
@@ -197,6 +207,8 @@ Leveraging ***AWS Lambda functions*** will remove the need to run a dedicated we
 A ***load balancer*** acts as a single point of contact for all incoming web traffic to your Auto Scaling group. This means that as Amazon EC2 instances are added or removed in response to the amount of incoming traffic, these requests are routed to the load balancer first and then spread across multiple resources that will handle them
 
 >The ***Classic loadbalancer*** uses a Round-Robin strategy for TCP listeners only.The ALB 1st selects a target based on the routing rule, then uses a Round-Robin strategy to select a node.
+
+***AWS Lambda@Edge*** is a serverless service that makes it possible to run event-triggered functions on Edge Locations within the AWS Content Delivery Network. Using AWS CloudFront, an administrator can introduce decision-making and compute processing closer to the viewer’s location, thereby improving on their browsing experience.
 
 # Health
 
@@ -295,4 +307,8 @@ The ***AWS Resource Center*** a repository of tutorials, whitepapers, digital tr
 
 ***AWS Identity and Access Management (IAM)*** is a service that you can use to manage access to AWS services and resources. 
 
->***AWS Key Management Service (AWS KMS)*** enables you to create, manage, and use cryptographic keys.
+***AWS Key Management Service (AWS KMS)*** enables you to create, manage, and use cryptographic keys.This service is used for creating and managing of keys and control the use of encryption across a wide range of AWS services and in your applications. The basic usage of this to protect the data at various stages like in-transit, rest, etc..
+
+# Disaster Recovery
+![Disaster Recovery](disaster-recovery-strategies.png)
+
