@@ -22,18 +22,17 @@ An alarm in ***AWS CloudWatch*** that triggers after exceeding the bill will not
 
 # Global Infrastructure
 ***Availability Zone*** is a single data center or a group of data centers within a Region.  Availability Zones are located tens of miles apart from each other. This helps them to provide interconnectivity to support the services and applications that run within a Region.
->There are at least *3 Availability Zones* per AWS Region. Some regions may contain more.
+>There are atleast *3 Availability Zones* per AWS Region. Some regions may contain more.
 
 >A separate geographical location with multiple locations that are isolated from each other  ***Region.***
 
 >The server from which Amazon CloudFront gets your files  ***origin***.
 
->A site that Amazon CloudFront uses to cache copies of content for faster delivery to users at any location  ***Edge location***.
+>A site that Amazon CloudFront uses to cache copies of content for faster delivery to users at any location - ***Edge location***.
 A *Distribution* is made up of Edge Locations that you want to serve content from, and details about how that content will be tracked an managed.
 
 ***Amazon CloudFront*** is a content delivery service. It uses a network of edge locations to cache content and deliver content to customers all over the world. When content is cached, it is stored locally as a copy. This content might be video files, photos, webpages, and so on.
 
->There are at least 3 Availability Zones per AWS Region. Some regions may contain more.
 # Plans
 The ***AWS Free Tier*** is not a Support plan. It is a program that consists of three types of offers that allow customers to use AWS services without incurring costs: Always free, 12 months free, and Trials.
 #
@@ -42,7 +41,7 @@ The ***AWS Free Tier*** is not a Support plan. It is a program that consists of 
 >***AWS Artifact*** is a service that enables you to access AWS security and compliance reports and special online agreements.
 ***AWS Artifact*** is a comprehensive resource center for access to AWS’ auditor issued reports as well as security and compliance documentation from several renowned independent standards organisations.
 
->Automate the deployment of workloads into your AWS environment  ***AWS Quick Starts***.
+>Automate the deployment of workloads into your AWS environment - ***AWS Quick Starts***.
 #
 ***Refactoring*** is migration strategy involves changing how an application is architected and developed, typically by using cloud-native features.
 
@@ -66,7 +65,6 @@ The ***S3 Standard-IA*** storage class is ideal for data that is infrequently ac
 ***Amazon Simple Storage Service (Amazon S3)*** is a service that provides object-level storage. Amazon S3 stores data as objects within buckets.
 >*Amazon S3 buckets* cannot be attached to Amazon EC2 instances.
 
-In the ***S3 Intelligent-Tiering*** storage class, Amazon S3 monitors objects’ access patterns. If you haven’t accessed an object for 30 consecutive days, Amazon S3 automatically moves it to the infrequent access tier, S3 Standard-IA. If you access an object in the infrequent access tier, Amazon S3 automatically moves it to the frequent access tier, S3 Standard.
 
 >***Access Control Lists*** let you control access to individual objects within an S3 bucket, where as ***Bucket Policies*** allow you to control access to entire buckets. In relation to S3.
 
@@ -132,7 +130,7 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 
 ***AWS Pricing Calculator*** lets you explore AWS services and create an estimate for the cost of your use cases on AWS. In the AWS Pricing Calculator, you can enter details for your cloud computing requirements and then receive a detailed estimate that can be exported and shared.
 
-***Lightsail*** accomplishes Predicable monthly pricing and instance ability to burst above the baseline level of CPU performance when needed.
+>***Lightsail*** accomplishes Predicable monthly pricing and instance ability to burst above the baseline level of CPU performance when needed.
 
 ***AWS Budgets*** provides a useful feature of setting custom budgets that prompt the user when their costs or usage are forecasted to exceed. The forecast aspect gives a buffer period in advance when alerting the user. Budgets can be tracked at the monthly, quarterly, or yearly level, and have customizable start and end dates. Alerts can be sent via email and/or Amazon Simple Notification Service (SNS) topic.
 
@@ -189,7 +187,7 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 
 A service that monitors your applications and automatically adds or removes capacity from your resource groups in response to changing demand -  ***AWS Auto Scaling***.
 
-***vertical scaling(scaling up)*** adds more resources to an instance and horizontal scaling(scaling out) adds more instances.
+>***vertical scaling(scaling up)*** adds more resources to an instance and ***horizontal scaling(scaling out)*** adds more instances.
 
 ***AWS Lambda*** is a service that lets you run code without needing to provision or manage servers. While using AWS Lambda, you pay only for the compute time that you consume. You are charged only when your code is running. With AWS Lambda, you can run code for virtually any type of application or backend service, all with zero administration. 
 
@@ -208,7 +206,7 @@ A ***load balancer*** acts as a single point of contact for all incoming web tra
 
 >*Enterprise and Business* Support plans include access to all AWS Trusted Advisor checks. The *Basic and Developer* Support plans provide access to a limited selection of AWS Trusted Advisor checks.
 
-***AWS Trusted Advisor*** also helps improve the performance of your services by providing recommendations for how to take advantage of provisioned throughput.
+
 
 >Trusted Advisor provide best practices and/or or checks on *Cost Optimization, Performance, Security, and Fault Tolerance.*
 
@@ -257,7 +255,7 @@ A resource that provides guidance, architectural reviews, and ongoing communicat
 
 The entire concept of ***decoupling components*** is to ensure that the different components of an applications can be managed and maintained separately. If all components are tightly coupled then when one component goes down , the entire application would do down. Hence it is always a better design practice to decouple application components.
 
-***Amazon QuickSight*** is the most appropriate service to utilise in the scenario, it is a fully-managed service that allows for insightful business intelligence reporting, with creative methods of data delivery including graphical and interactive dashboards. QuickSight includes machine learning which allows users to discover inconspicuous trends and patterns on their datasets.
+***Amazon QuickSight*** is a fully-managed service that allows for insightful business intelligence reporting, with creative methods of data delivery including graphical and interactive dashboards. QuickSight includes machine learning which allows users to discover inconspicuous trends and patterns on their datasets.
 
 ***AWS CloudFormation*** provides templates to specify all the AWS resources needed by the testing environments. These templates can be instantiated as stacks to provision consistent environments every time one is needed.
 
