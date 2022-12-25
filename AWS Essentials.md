@@ -48,19 +48,24 @@ A *Distribution* is made up of Edge Locations that you want to serve content fro
 The ***AWS Free Tier*** is not a Support plan. It is a program that consists of three types of offers that allow customers to use AWS services without incurring costs: Always free, 12 months free, and Trials.
 #
 ***Amazon Route 53*** is a DNS web service. It gives developers and businesses a reliable way to route end users to internet applications that are hosted in AWS. Additionally, you can transfer DNS records for existing domain names that are currently managed by other domain registrars, or register new domain names directly within Amazon Route 53.
->In Amazon Route 53, the **geolocation routing policy** allows for different resources to serve content based on the origin of the request. This in turn makes it possible in the scenario for different versions of the website to be served
+>In Amazon Route 53, the **geolocation routing policy** allows for different resources to serve content based on the origin of the request. This in turn makes it possible in the scenario for different versions of the website to be served.
+Amazon Route 53 geolocation routing policy makes it possible for different types of content to be served depending on the geographical location of where the browser is
 
 >When a Disaster does occur , it can be easy to switch to secondary sites using the Route53 service
 
 >In Amazon Route53 any alterations made to record sets in hosted zones will take the duration of the set Time to live (TTL) before they can reflect. However, flushing of the local DNS and browser cache will prompt a new query to the Route53 hosted zone thereby giving the new changes.
 
+>***Fail over Routing policy*** will make it possible for traffic to be routed to the resource in good health and not to the one experiencing poor response times.
 
 
->Automate the deployment of workloads into your AWS environment - ***AWS Quick Starts***.
 #
 ***Refactoring*** is migration strategy involves changing how an application is architected and developed, typically by using cloud-native features.
 
-***AWS Database Migration*** Service helps you migrate databases to AWS quickly and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database. The AWS Database Migration Service can migrate your data to and from most widely used commercial and open-source databases.
+***AWS Database Migration Service (DMS)*** helps you migrate databases to AWS quickly and securely. The source database remains fully operational during the migration, minimizing downtime to applications that rely on the database. The AWS Database Migration Service can migrate your data to and from most widely used commercial and open-source databases.
+>- AWS DMS can migrate databases from on-premise to AWS 
+>-  AWS DMS can migrate databases from EC2 to Amazon RDS
+>-   AWS DMS can migrate databases from AWS to on-premise 
+>-   AWS DMS can have Amazon Redshift and Amazon DynamoDB as target databases
 
 ***Repurchasing*** involves replacing an existing application with a cloud-based version, such as software found in AWS Marketplace.
 
@@ -145,6 +150,13 @@ AWS Snowmobile is a service that is used for transferring up to 100 PB of data t
 
 >***AWS Snowball*** is a device that enables you to transfer large amounts of data into and out of AWS.
 
+***Amazon Kinesis Data Streams (KDS)*** is a massively scalable and durable real-time data streaming service…. The data collected is available in milliseconds to enable real-time analytics use cases such as real-time dashboards, real-time anomaly detection, dynamic pricing, and more.
+
+>If you want a fully managed solution and you want to use SQL to process the data from your data stream, you should use ***Kinesis Data Analytics***.
+
+***Amazon Kinesis Client Library (KCL)*** is a service to process and query streaming data using SQL KCL is more complicated than AWS Kinesis Data Analytics. “Kinesis Data Analytics uses the KCL to read data from streaming data sources as one part of your underlying application. The service abstracts this from you, as well as many of the more complex concepts associated with using the KCL, such as checkpointing”
+
+>***Amazon Kinesis Data Firehose*** is a service for loading data streams.
 
 The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple AWS services directly from the command line within one tool. For example, you can use comands to start an Amazon EC2 instance, connect an Amazon EC2 instance to a specific Auto Scaling group, and more. The AWS CLI is available for users on Windows, macOS, and Linux.
 
@@ -164,7 +176,9 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 # Message
 
 ***Amazon SQS*** is a message queuing service. Using Amazon SQS, you can send, store, and receive messages between software components at any volume size, without losing messages or requiring other services to be available. In Amazon SQS, an application sends messages into a queue. A user or service retrieves a message from the queue, processes it, and then deletes it from the queue.
->Amazon Simple Queue Service (Amazon SQS) offers a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. It moves data between distributed application components and helps you decouple these components
+>Amazon Simple Queue Service (Amazon SQS) offers a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. It moves data between distributed application components and helps you decouple these components.
+
+***AWS SQS*** implements messaging that is a typical integration pattern to decouple application components. AWS documentation mention it “Amazon SQS offers a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. It moves data between distributed application components and helps you decouple these components. “
 
 # Instance Types
 ***Amazon EC2 Savings Plans*** enable you to reduce your compute costs by committing to a consistent amount of compute usage for a 1-year or 3-year term. This results in savings of up to 72% over On-Demand Instance costs. Any usage up to the commitment is charged at the discounted Savings Plan rate (for example, $10 an hour). Any usage beyond the commitment is charged at regular On-Demand Instance rates.
@@ -174,7 +188,9 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 - ***Spot Instances*** are ideal for workloads with flexible start and end times or that can withstand interruptions. Spot Instances leverage unused EC2 computing capacity and offer you cost savings at up to 90% of On-Demand Instance prices.
 
 - ***Dedicated Hosts*** are physical servers with EC2 instance capacity that is fully dedicated to your use. You can use your existing per-socket, per-core, or per-VM software licenses to help maintain license compliance. You can purchase On-Demand Dedicated Hosts or Reserved Dedicated Hosts. Of all the Amazon EC2 options that were covered in this course, Dedicated Hosts are the most expensive.
->Instance stores are ideal for temporary data that does not need to be kept long term. When an Amazon EC2 instance is stopped or terminated, all the data that has been written to the attached instance store is deleted.
+>***Instance stores*** are ideal for temporary data that does not need to be kept long term. When an Amazon EC2 instance is stopped or terminated, all the data that has been written to the attached instance store is deleted.
+
+***Amazon Machine Image (AMI)*** provides the information required to launch an instance, which is a virtual server in the cloud. You specify an AMI when you launch an instance, and you can launch as many instances from the AMI as you need. You can also launch instances from as many different AMIs as you need
   
 
 # Database
@@ -292,6 +308,8 @@ A resource that provides guidance, architectural reviews, and ongoing communicat
 
 ***AWS OpsWorks*** provides a fully managed configuration automation and management service of Chef and Puppet. These platforms will allow for the use of code to automate the configuration of the EC2 instances, including replication as stated in the scenario. With Chef and Puppet, OpsWorks allows for the automation of how servers are configured, deployed, and managed across Amazon EC2 instances or on-premises compute environments.
 
+>Automate the deployment of workloads into your AWS environment - ***AWS Quick Starts***.
+
 ***Amazon Rekognition*** enables the uptake of imagery and video for analysis in applications. By uploading imagery or video footage to the Rekognition API, the service engine would then identify and distinguish facial features, text, objects and activities. This service will meet the requirements of the scenario as an access control solution.
 
 The entire concept of ***decoupling components*** is to ensure that the different components of an applications can be managed and maintained separately. If all components are tightly coupled then when one component goes down , the entire application would do down. Hence it is always a better design practice to decouple application components.
@@ -304,6 +322,8 @@ The entire concept of ***decoupling components*** is to ensure that the differen
 
 You upload your application, and ***Elastic Beanstalk*** automatically handles the deployment details of capacity provisioning, load balancing, auto-scaling, and application health monitoring.
 
+***Amazon EMR*** helps you analyze and process vast amounts of data by distributing the computational work across a cluster of virtual servers running in the AWS Cloud. The cluster is managed using an open-source framework called Hadoop. Amazon EMR lets you focus on crunching or analyzing your data without having to worry about the time-consuming setup, management, and tuning of Hadoop clusters or the compute capacity they rely on.
+
 ***Amazon EKS*** is a fully managed service that you can use to run Kubernetes on AWS. Kubernetes is open-source software that enables you to deploy and manage containerized applications at scale. Containers provide you with a standard way to package your application's code and dependencies into a single object. Containers are frequently used for processes and workflows in which there are essential requirements for security, reliability, and scalability.
 
 ***Amazon Augmented AI (Amazon A2I)*** provides built-in human review workflows for common machine learning use cases, such as content moderation and text extraction from documents. With Amazon A2I, you can also create your own workflows for machine learning models built on AmazonA2I
@@ -311,7 +331,8 @@ You upload your application, and ***Elastic Beanstalk*** automatically handles t
 >***Amazon SageMaker*** is a service that enables you to quickly build, train, and deploy machine learning models.***AWS DeepRacer*** is an autonomous 1/18 scale race car that you can use to test reinforcement learning models.
 
 ***Amazon Macie*** is a fully managed security service that uses AI and ML to continuously observe data access activity in order to alert the user of any anomalies if they arise. Alerts may include unauthorized access, data leaks and any out-of-the-norm patterns. The major functions are to discover, classify and protect the user data.
->Using artificial intelligence (AI), machine learning (ML), natural language understanding (NLU), Amazon Macie has the capability to read documents and sift through user data for sensitive or vulnerable information that can be exploited. Information such as credit/debit card numbers, access keys in documents will trigger an alert. Amazon Macie integrates with Amazon CloudTrail to detect unusual access patterns to user data and alerts the administrator.
+
+>Using artificial intelligence (AI), machine learning (ML), natural language understanding (NLU), ***Amazon Macie*** has the capability to read documents and sift through user data for sensitive or vulnerable information that can be exploited. Information such as credit/debit card numbers, access keys in documents will trigger an alert. Amazon Macie integrates with Amazon CloudTrail to detect unusual access patterns to user data and alerts the administrator.
 
 # Perspective
 
@@ -342,6 +363,10 @@ The ***AWS Resource Center*** a repository of tutorials, whitepapers, digital tr
 ***IAM Identity Federation*** allows access to the AWS environment using a central single sign-on (SSO) set of credentials from third-party or corporate active directory. Federation uses open standards such as SAML2.0 to transact identity information between identity provider (IdP) the respective applications
 
 ***AWS Key Management Service (AWS KMS)*** enables you to create, manage, and use cryptographic keys.This service is used for creating and managing of keys and control the use of encryption across a wide range of AWS services and in your applications. The basic usage of this to protect the data at various stages like in-transit, rest, etc..
+
+***AWS Config*** service allows the administrator to monitor and record configuration changes on AWS resources in their account. The service also allows the administrator to create a resource configuration inventory.
+
+>***AWS Config*** can be used to keep track of configuration changes on AWS resources, keeping multiple date-stamped versions in a reviewable history.
 
 # Disaster Recovery
 ![Disaster Recovery](disaster-recovery-strategies.png)
