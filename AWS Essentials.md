@@ -10,7 +10,7 @@
 
 ***Amazon Inspector*** is a service that checks applications for security vulnerabilities and deviations from security best practices.Amazon Inspector enables you to analyze the behavior of your AWS resources and helps you to identify potential security issues. Using Amazon Inspector, you can define a collection of AWS resources that you want to include in an assessment target. You can then create an assessment template and launch a security assessment run of this target.
 
-
+***AWS Artifact*** provides on-demand downloads of AWS security and compliance documents, such as AWS ISO certifications, Payment Card Industry (PCI), and Service Organization Control (SOC) reports. You can submit the security and compliance documents (also known as audit artifacts) to your auditors or regulators to demonstrate the security and compliance of the AWS infrastructure and services that you use.
 >***AWS Artifact*** is a service that enables you to access AWS security and compliance reports and special online agreements.
 
 ***AWS Artifact*** is a comprehensive resource center for access to AWS’ auditor issued reports as well as security and compliance documentation from several renowned independent standards organisations.
@@ -367,6 +367,11 @@ The ***AWS Resource Center*** a repository of tutorials, whitepapers, digital tr
 ***AWS Config*** service allows the administrator to monitor and record configuration changes on AWS resources in their account. The service also allows the administrator to create a resource configuration inventory.
 
 >***AWS Config*** can be used to keep track of configuration changes on AWS resources, keeping multiple date-stamped versions in a reviewable history.
+
+***AWS Managed Service Providers (MSP)*** provide end-to-end AWS solutions to customers at any stage of the cloud journey-from consultation on initial solution design, to building applications, through to ongoing optimization and support. By working with next-generation AWS MSP Partners, you can leverage the cloud as a strategic business advantage that goes beyond technical benefits and generates positive business outcomes. AWS MSPs are your trusted advisors and support customers of all sizes with different business needs.
+
+# Dont Know which service
+***Quotas***, also referred to as limits in AWS services, are the maximum values for the resources, actions, and items in your AWS account. Each AWS service defines its quotas and establishes default values for those quotas. Depending on your business needs, you might need to increase your service quota values.
 
 # Disaster Recovery
 ![Disaster Recovery](disaster-recovery-strategies.png)
