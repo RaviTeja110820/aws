@@ -310,7 +310,8 @@ You upload your application, and ***Elastic Beanstalk*** automatically handles t
 
 >***Amazon SageMaker*** is a service that enables you to quickly build, train, and deploy machine learning models.***AWS DeepRacer*** is an autonomous 1/18 scale race car that you can use to test reinforcement learning models.
 
-***Amazon Macie*** is a fully managed security service that uses AI and ML to continuously observe data access activity in order to alert the user of any anomalies if they arise. Alerts may include unauthorized access, data leaks and any out-of-the-norm patterns. The major functions are to discover, classify and protect the user data
+***Amazon Macie*** is a fully managed security service that uses AI and ML to continuously observe data access activity in order to alert the user of any anomalies if they arise. Alerts may include unauthorized access, data leaks and any out-of-the-norm patterns. The major functions are to discover, classify and protect the user data.
+>Using artificial intelligence (AI), machine learning (ML), natural language understanding (NLU), Amazon Macie has the capability to read documents and sift through user data for sensitive or vulnerable information that can be exploited. Information such as credit/debit card numbers, access keys in documents will trigger an alert. Amazon Macie integrates with Amazon CloudTrail to detect unusual access patterns to user data and alerts the administrator.
 
 # Perspective
 
