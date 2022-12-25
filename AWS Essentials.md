@@ -1,17 +1,25 @@
 # Security
 ***AWS GuardDuty*** is a service that provides intelligent threat detection for your AWS infrastructure and resources. AWS GuardDuty identifies threats by continually monitoring the network activity and account behavior within your AWS environment.
 
-***AWS Shield*** is a service that helps protect your applications against distributed denial-of-service (DDoS) attacks .
 
-***Amazon Inspector*** is a service that checks applications for security vulnerabilities and deviations from security best practices.
+***AWS Shield*** is a managed DDoS protection service that is available in two tiers: Standard and Advanced. AWS Shield Standard applies always-on detection and inline mitigation techniques, such as deterministic packet filtering and priority-based traffic shaping, to minimize application downtime and latency. AWS Shield Standard is included automatically and transparently to your Elastic Load Balancing load balancers, Amazon CloudFront distributions, and Amazon Route 53 resources at no additional cost. When you use these services that include AWS Shield Standard, you receive comprehensive availability protection against all known infrastructure layer attacks. Customers who have the technical expertise to manage their own monitoring and mstigation of application layer attacks can use AWS Shield together with AWS WAF rules to create a comprehensive DDoS attack mitigation strategy.
+>***AWS Shield*** is a service that helps protect your applications against distributed denial-of-service (DDoS) attacks .
 
->A service that lets you monitor network requests that come into your web applications - ***AWS WAF***.
+***AWS Shield*** – All AWS customers benefit from the automatic protections of AWS Shield Standard, at no additional charge. AWS Shield Standard defends against most common, frequently occurring network and transport layer DDoS attacks that target your web site or applications.
+***AWS Shield Advanced*** – For higher levels of protection against attacks targeting your web applications running on Amazon EC2, Elastic Load Balancing (ELB), CloudFront, and Route 53 resources, you can subscribe to AWS Shield Advanced. AWS Shield Advanced provides expanded DDoS attack protection for these resource
 
-***AWS Web Application Firewall (WAF)*** is a web-based application that allows for monitoring of ingress and egress traffic on provisioned web services. These could be in an AWS CloudFront distribution, behind an AWS Load Balancer or standalone instance. AWS WAF includes AWS Shield (AWS Shield Standard that comes at no additional cost and AWS Shield Advanced, on subscription) that protects against SYN floods, DNS query floods and UDP reflection attacks amongst others.
+***Amazon Inspector*** is a service that checks applications for security vulnerabilities and deviations from security best practices.Amazon Inspector enables you to analyze the behavior of your AWS resources and helps you to identify potential security issues. Using Amazon Inspector, you can define a collection of AWS resources that you want to include in an assessment target. You can then create an assessment template and launch a security assessment run of this target.
+
+
+>***AWS Artifact*** is a service that enables you to access AWS security and compliance reports and special online agreements.
+
+***AWS Artifact*** is a comprehensive resource center for access to AWS’ auditor issued reports as well as security and compliance documentation from several renowned independent standards organisations.
 
 
 # Cloud Trail
 With ***CloudTrail***, you can view a complete history of user activity and API calls for your applications and resources.  Events are typically updated in CloudTrail within 15 minutes after an API call was made. You can filter events by specifying the time and date that an API call occurred, the user who requested the action, the type of resource that was involved in the API call, and more.
+
+>By viewing Event history in Amazon CloudTrail, the administrator can be able to access operational, access and activity logs for the past 90 days, to the S3 bucket that hosts the static website
 
 
 ***AWS CloudTrail*** is a service that primarily tracks governance, compliance, operational auditing, and risk auditing of your AWS account. CloudTrail logs continuously monitors, and retains account activity related to actions across all AWS infrastructure. CloudTrail provides event history of AWS account activity, including actions taken through the AWS Management Console, AWS SDKs, command line tools, and other AWS services. This event history simplifies security analysis, resource change tracking, and troubleshooting.
@@ -40,10 +48,13 @@ A *Distribution* is made up of Edge Locations that you want to serve content fro
 The ***AWS Free Tier*** is not a Support plan. It is a program that consists of three types of offers that allow customers to use AWS services without incurring costs: Always free, 12 months free, and Trials.
 #
 ***Amazon Route 53*** is a DNS web service. It gives developers and businesses a reliable way to route end users to internet applications that are hosted in AWS. Additionally, you can transfer DNS records for existing domain names that are currently managed by other domain registrars, or register new domain names directly within Amazon Route 53.
+>In Amazon Route 53, the **geolocation routing policy** allows for different resources to serve content based on the origin of the request. This in turn makes it possible in the scenario for different versions of the website to be served
+
+>When a Disaster does occur , it can be easy to switch to secondary sites using the Route53 service
+
 >In Amazon Route53 any alterations made to record sets in hosted zones will take the duration of the set Time to live (TTL) before they can reflect. However, flushing of the local DNS and browser cache will prompt a new query to the Route53 hosted zone thereby giving the new changes.
 
->***AWS Artifact*** is a service that enables you to access AWS security and compliance reports and special online agreements.
-***AWS Artifact*** is a comprehensive resource center for access to AWS’ auditor issued reports as well as security and compliance documentation from several renowned independent standards organisations.
+
 
 >Automate the deployment of workloads into your AWS environment - ***AWS Quick Starts***.
 #
@@ -57,12 +68,15 @@ The ***AWS Free Tier*** is not a Support plan. It is a program that consists of 
 
 ***Replatforming*** involves selectively optimizing aspects of an application to achieve benefits in the cloud without changing the core architecture of the application. It is also known as “lift, tinker, and shift.”
 
+>AWS permits users to conduct ***vulnerability and penetration testing*** certain specified AWS services. This allows organisations to comply with any industry regulations that stipulate that vulnerability and penetration testing be conducted on services and infrastructure.
+
 # S3
 In the ***S3 Intelligent-Tiering*** storage class, Amazon S3 monitors objects’ access patterns. If you haven’t accessed an object for 30 consecutive days, Amazon S3 automatically moves it to the infrequent access tier, S3 Standard-IA. If you access an object in the infrequent access tier, Amazon S3 automatically moves it to the frequent access tier, S3 Standard.
 
 >Data is organised in S3 into **Archives**, and **Vaults** are used to group Archives together. **Access policies** control who can access the data in Archives & Vaults.
 
 ***S3 Glacier*** is a low-cost storage class that is ideal for data archiving. You can retrieve objects stored in the S3 Glacier storage class within a few minutes to a few hours.
+>AWS Console cannot be used to upload data onto Glacier. The console can only be used to create a Glacier vault which can be used to upload the data.%0D%0AFor more information on uploading data onto Glacie
 
 The ***S3 Standard-IA*** storage class is ideal for data that is infrequently accessed but requires high availability when needed. Both S3 Standard and S3 Standard-IA store data in a minimum of three Availability Zones. S3 Standard-IA provides the same level of availability as S3 Standard but at a lower storage price. 
 
@@ -80,6 +94,7 @@ The ***S3 Standard-IA*** storage class is ideal for data that is infrequently ac
 
 >**Amazon S3 Transfer Acceleration** enables fast, easy, and secure transfers of files over long distances between your client and an S3 bucket. Transfer Acceleration takes advantage of Amazon CloudFront’s globally distributed edge locations. As the data arrives at an edge location, data is routed to Amazon S3 over an optimized network path.
 
+>***AWS DataSync*** Can copy data between NFS servers, SMB file shares, Amazon S3 buckets, and Amazon EFS file system. it is a fully managed data transfer service with built-in retry mechanism.It is integrated with AWS CloudWatch
 
 # Well Architected Frame Work
 The ***Performance Efficiency pillar*** focuses on using computing resources efficiently to meet system requirements, and to maintain that efficiency as demand changes and technologies evolve.
@@ -108,11 +123,17 @@ Provision an isolated section of the AWS Cloud to launch resources in a virtual 
 
 >A *network access control list (ACL)* is a virtual firewall that controls inbound and outbound traffic at the subnet level.
 
+***VPC Peering*** can be established between VPCs in different AWS Regions and in separate AWS Accounts. The logical networks still use the same common AWS backbone network infrastructure to communicate. By utilizing this infrastructure, VPC Peering makes it possible to securely store mission-critical data to geographically distinct locations for fault-tolerance, disaster recovery and redundancy.
+
 A ***security group*** is a virtual firewall that controls inbound and outbound traffic for an Amazon EC2 instance. By default, a security group denies all inbound traffic and allows all outbound traffic. You can add custom rules to configure which traffic should be allowed or denied.
 
 >Security Groups and Network Access Control Lists are used to protect resources from traffic, and by themselves do not enable access to the internet - although they need to be properly configured to let traffic bound for the internet out.
 
 A ***NAT Gateway*** is required to allow resources in a private subnet to access the internet. Route tables tell traffic where it should go next to reach its destination, but don't actually process or transmit traffic. 
+
+>A service that lets you monitor network requests that come into your web applications - ***AWS WAF***.
+
+***AWS Web Application Firewall (WAF)*** is a web-based application that allows for monitoring of ingress and egress traffic on provisioned web services. These could be in an AWS CloudFront distribution, behind an AWS Load Balancer or standalone instance. AWS WAF includes AWS Shield (AWS Shield Standard that comes at no additional cost and AWS Shield Advanced, on subscription) that protects against SYN floods, DNS query floods and UDP reflection attacks amongst others.
 
 # Transfer
 ***AWS Direct Connect*** is a service that enables you to establish a dedicated private connection between your data center and VPC.  The private connection that AWS Direct Connect provides helps you to reduce network costs and increase the amount of bandwidth that can travel through your network.
@@ -143,6 +164,7 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 # Message
 
 ***Amazon SQS*** is a message queuing service. Using Amazon SQS, you can send, store, and receive messages between software components at any volume size, without losing messages or requiring other services to be available. In Amazon SQS, an application sends messages into a queue. A user or service retrieves a message from the queue, processes it, and then deletes it from the queue.
+>Amazon Simple Queue Service (Amazon SQS) offers a reliable, highly-scalable hosted queue for storing messages as they travel between applications or microservices. It moves data between distributed application components and helps you decouple these components
 
 # Instance Types
 ***Amazon EC2 Savings Plans*** enable you to reduce your compute costs by committing to a consistent amount of compute usage for a 1-year or 3-year term. This results in savings of up to 72% over On-Demand Instance costs. Any usage up to the commitment is charged at the discounted Savings Plan rate (for example, $10 an hour). Any usage beyond the commitment is charged at regular On-Demand Instance rates.
@@ -157,7 +179,10 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 
 # Database
 
->***Amazon ElastiCache*** is a service that adds caching layers on top of your databases to help improve the read times of common requests. A service that enables you to set up, manage, and scale a distributed in-memory or cache environment in the cloud -  *Amazon ElastiCache*.
+***Amazon ElastiCache*** is a service that adds caching layers on top of your databases to help improve the read times of common requests. A service that enables you to set up, manage, and scale a distributed in-memory or cache environment in the cloud -  *Amazon ElastiCache*.
+
+>implementing and configuring Amazon ElastiCache will improve the performance by storing frequently accessed content in-memory. The storage type is a managed, high-speed, volatile and not disk-based, making information retrieval faster than disk-based stored content.
+
 
 ***Amazon Redshift*** is a data warehousing service that you can use for big data analytics. It offers the ability to collect data from many sources and help you to understand relationships and trends across your data.
 
@@ -169,6 +194,7 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 ***Amazon Quantum Ledger Database*** (Amazon QLDB) is a ledger database service. You can use Amazon QLDB to review a complete history of all the changes that have been made to your application data.
 
 ***Amazon DynamoDB*** is a key-value database service. A key-value database might include data pairs such as “Name: John Doe,” “Address: 123 Any Street,” and “City: Anytown”. In a key-value database, you can add or remove attributes from items in the table at any time. Additionally, not every item in the table has to have the same attributes.  
+>the most appropriate attribute of Amazon DynamoDB is its flexible data model and single-digit millisecond latency
 
 ***Amazon Aurora (Aurora)*** is a fully managed, MySQL- and PostgreSQL-compatible, relational database engine. It combines the speed and reliability of high-end commercial databases with the simplicity and cost-effectiveness of open-source databases. It delivers up to five times the throughput of MySQL and up to three times the throughput of PostgreSQL without requiring changes to most of your existing applications.
 
@@ -178,11 +204,14 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 
 ***Amazon Neptune*** is a graph database service. You can use Amazon Neptune to build and run applications that work with highly connected datasets, such as recommendation engines, fraud detection, and knowledge graphs.
 
+***Amazon Athena*** a serverless query service that does not need to build databases on dedicated Elastic Block Store (EBS) volumes, instead, it builds tables from data read directly from Amazon S3 buckets. Amazon Athena does not store any of the data. The service is compatible with the regular data formats that include CSV, JSON, ORC, AVRO and Parquet
 >Amazon Athena is a serverless query service used to analyze BigData stored in S3.
 
 ***Amazon Relational databases service (RDS)*** is best suited in scenarios where the dataset and forms are consistent such that their data schema is persistently valid. It is best to deploy in an environment where the load can be anticipated and is somewhat finite. Amazon RDS engines include Amazon Aurora, MariaDB, PostgreSQL.
 
 >when an RDS Master database in a Multi-AZ deployment goes down RDS automatically fails over to the standby, which is promoted to Master.
+
+You can reduce the load on your source DB Instance by routing read queries from your applications to the read replica. ***Read replicas*** allow you to elastically scale out beyond the capacity constraints of a single DB instance for read-heavy database workloads
 
 >***Read replicas*** will enhance the database performance and durability by allowing for automated distribution of load amongst several database instances with the exact copy of the parent database.
 
@@ -281,6 +310,8 @@ You upload your application, and ***Elastic Beanstalk*** automatically handles t
 
 >***Amazon SageMaker*** is a service that enables you to quickly build, train, and deploy machine learning models.***AWS DeepRacer*** is an autonomous 1/18 scale race car that you can use to test reinforcement learning models.
 
+***Amazon Macie*** is a fully managed security service that uses AI and ML to continuously observe data access activity in order to alert the user of any anomalies if they arise. Alerts may include unauthorized access, data leaks and any out-of-the-norm patterns. The major functions are to discover, classify and protect the user data
+
 # Perspective
 
 The ***Operations Perspective*** of the AWS Cloud Adoption Framework also includes principles for operating in the cloud by using agile best practices.
@@ -306,6 +337,8 @@ The ***AWS Resource Center*** a repository of tutorials, whitepapers, digital tr
 ***Resource Tags*** are user-defined label that has a key-value pair of variable character length. It is assigned to AWS resources as metadata for administration and management purposes.
 
 ***AWS Identity and Access Management (IAM)*** is a service that you can use to manage access to AWS services and resources. 
+
+***IAM Identity Federation*** allows access to the AWS environment using a central single sign-on (SSO) set of credentials from third-party or corporate active directory. Federation uses open standards such as SAML2.0 to transact identity information between identity provider (IdP) the respective applications
 
 ***AWS Key Management Service (AWS KMS)*** enables you to create, manage, and use cryptographic keys.This service is used for creating and managing of keys and control the use of encryption across a wide range of AWS services and in your applications. The basic usage of this to protect the data at various stages like in-transit, rest, etc..
 
