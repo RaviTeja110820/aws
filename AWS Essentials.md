@@ -158,6 +158,8 @@ AWS Snowmobile is a service that is used for transferring up to 100 PB of data t
 
 ***AWS Local Zones*** are a type of AWS infrastructure deployment that place compute, storage, database, and other select services closer to large population, industry, and IT centers, enabling you to deliver applications that require single- digit millisecond latency to end-users.
 
+> **Run low-latency** applications at the edge Build and deploy applications close to end users to enable real-time gaming, live streaming, augmented and virtual reality (AR/VR), virtual workstations, and more. Simplify hybrid cloud migrations Migrate your applications a near by while still meeting the low-latency requirements of hybrid deployment.
+
 >***AWS Snowball*** is a device that enables you to transfer large amounts of data into and out of AWS.
 
 ***Amazon Kinesis Data Streams (KDS)*** is a massively scalable and durable real-time data streaming service…. The data collected is available in milliseconds to enable real-time analytics use cases such as real-time dashboards, real-time anomaly detection, dynamic pricing, and more.
@@ -182,6 +184,8 @@ The ***AWS Command Line Interface (AWS CLI)*** enables you to control multiple A
 >***Lightsail*** accomplishes Predicable monthly pricing and instance ability to burst above the baseline level of CPU performance when needed.
 
 ***AWS Budgets*** provides a useful feature of setting custom budgets that prompt the user when their costs or usage are forecasted to exceed. The forecast aspect gives a buffer period in advance when alerting the user. Budgets can be tracked at the monthly, quarterly, or yearly level, and have customizable start and end dates. Alerts can be sent via email and/or Amazon Simple Notification Service (SNS) topic.
+
+***AWS Support Concierge*** Included as part of the Enterprise Support plan, the Support Concierge Team are AWS billing and account experts that specialize in working with enterprise accounts.
 
 # Message
 
@@ -315,6 +319,7 @@ AWS ***Firewall Manager*** aids in the administration of Web Application Firewal
 ***AWS CodeDeploy*** is a deployment service that allows developers to automate the installation of applications to hosts, Amazon EC2 instances, Amazon ECS instances, serverless Lambda functions or even on-premises servers. AWS CodeDeploy can enable the update of those applications.
 
 ***AWS X-Ray*** helps developers analyze and debug production, distributed applications, such as those built using a microservices architecture. With X-Ray, developers can understand how the application and its underlying services are performing to identify and troubleshoot the root cause of performance issues and errors. X-Ray provides an end-to-end view of requests as they travel through an application, and shows a map of an application’s underlying components.
+>**AWS X-Ray** provides a complete view of requests as they travel through your application and filters visual data across payloads, functions, traces, services, APIs, and more with no-code and low-code motions.
 
 # Advanced
 
@@ -323,6 +328,8 @@ AWS ***Firewall Manager*** aids in the administration of Web Application Firewal
 >Automate the deployment of workloads into your AWS environment - ***AWS Quick Starts***.
 
 ***Amazon Rekognition*** enables the uptake of imagery and video for analysis in applications. By uploading imagery or video footage to the Rekognition API, the service engine would then identify and distinguish facial features, text, objects and activities. This service will meet the requirements of the scenario as an access control solution.
+
+>***Amazon Comprehend*** uses natural language processing (NLP) to extract insights about the content of documents.
 
 The entire concept of ***decoupling components*** is to ensure that the different components of an applications can be managed and maintained separately. If all components are tightly coupled then when one component goes down , the entire application would do down. Hence it is always a better design practice to decouple application components.
 
