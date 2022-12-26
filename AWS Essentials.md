@@ -328,6 +328,8 @@ The entire concept of ***decoupling components*** is to ensure that the differen
 
 ***Amazon QuickSight*** is a fully-managed service that allows for insightful business intelligence reporting, with creative methods of data delivery including graphical and interactive dashboards. QuickSight includes machine learning which allows users to discover inconspicuous trends and patterns on their datasets.
 
+>***Amazon Polly*** uses deep learning technologies to synthesize natural-sounding human speech, so you can convert articles to speech. With dozens of lifelike voices across a broad set of languages, use Amazon Polly to build speech-activated applications.
+
 ***AWS CloudFormation*** provides templates to specify all the AWS resources needed by the testing environments. These templates can be instantiated as stacks to provision consistent environments every time one is needed.
 
 >Provision resources by using programming languages or a text file - AWS CloudFormation.
