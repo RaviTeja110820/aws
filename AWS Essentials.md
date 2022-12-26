@@ -44,6 +44,8 @@ A *Distribution* is made up of Edge Locations that you want to serve content fro
 
 >Amazon CloudFront is a web service that speeds up distribution of your static and dynamic web content, such as .html, .css, .js, and image files, to your users. 
 
+***AWS Infrastructure Event Management (IEM)*** offers architecture and scaling guidance and operational support during the preparation and execution of planned events, such as shopping holidays, product launches, and migrations. For these events, AWS Infrastructure Event Management will help you assess operational readiness, identify and mitigate risks, and execute your event confidently with AWS experts by your side. The program is included in the Enterprise Support plan and is available to Business Support customers for an additional fee.
+
 # Plans
 The ***AWS Free Tier*** is not a Support plan. It is a program that consists of three types of offers that allow customers to use AWS services without incurring costs: Always free, 12 months free, and Trials.
 #
@@ -87,6 +89,8 @@ The ***S3 Standard-IA*** storage class is ideal for data that is infrequently ac
 
 ***S3 One Zone-IA*** is ideal for infrequently accessed data that does not require high availability.
 
+>***Amazon Elastic Transcoder*** lets you convert media files that you have stored in Amazon Simple Storage Service (Amazon S3) into media files in the formats required by consumer playback devices.
+
 ***Amazon Simple Storage Service (Amazon S3)*** is a service that provides object-level storage. Amazon S3 stores data as objects within buckets.
 >*Amazon S3 buckets* cannot be attached to Amazon EC2 instances.
 
@@ -120,6 +124,8 @@ In ***AWS Organizations***, you can centrally control permissions for the accoun
 A virtual private gateway enables you to establish a virtual private network (VPN) connection between your VPC and a private network, such as an on-premises data center or internal corporate network.
 > A *virtual private gateway* allows traffic into the VPC only if it is coming from an approved network.
 
+>***AWS Transit Gateway*** routes all traffic to and from each VPC or VPN, and you have one place to manage and monitor it all. 
+
 An ***internet gateway*** is a connection between a VPC and the internet. It allows public traffic from the internet to access a VPC.
 
 A ***subnet*** is a section of a VPC in which you can group resources based on security or operational needs.
@@ -140,6 +146,8 @@ A ***NAT Gateway*** is required to allow resources in a private subnet to access
 
 ***AWS Web Application Firewall (WAF)*** is a web-based application that allows for monitoring of ingress and egress traffic on provisioned web services. These could be in an AWS CloudFront distribution, behind an AWS Load Balancer or standalone instance. AWS WAF includes AWS Shield (AWS Shield Standard that comes at no additional cost and AWS Shield Advanced, on subscription) that protects against SYN floods, DNS query floods and UDP reflection attacks amongst others.
 
+***AWS Global Accelerator*** is a networking service that improves the performance of your users' traffic by up to 60% using Amazon Web Services' global network infrastructure. When the internet is congested, AWS Global Accelerator optimizes the path to your application to keep packet loss, jitter, and latency consistently low.
+
 # Transfer
 ***AWS Direct Connect*** is a service that enables you to establish a dedicated private connection between your data center and VPC.  The private connection that AWS Direct Connect provides helps you to reduce network costs and increase the amount of bandwidth that can travel through your network.
 
@@ -147,6 +155,8 @@ A ***NAT Gateway*** is required to allow resources in a private subnet to access
 AWS Snowmobile is a service that is used for transferring up to 100 PB of data to AWS. Each Snowmobile is a 45-foot long shipping container that is pulled by a semi-trailer truck. 
 
 >***AWS Outposts*** is a service that enables you to run infrastructure in a hybrid cloud approach.
+
+***AWS Local Zones*** are a type of AWS infrastructure deployment that place compute, storage, database, and other select services closer to large population, industry, and IT centers, enabling you to deliver applications that require single- digit millisecond latency to end-users.
 
 >***AWS Snowball*** is a device that enables you to transfer large amounts of data into and out of AWS.
 
@@ -291,7 +301,9 @@ AWS ***License Manager*** serves the purpose of differentiating, maintaining thi
 
 AWS ***Firewall Manager*** aids in the administration of Web Application Firewall (WAF), by presenting a centralised point of setting firewall rules across different web resources.
 
-A resource that provides guidance, architectural reviews, and ongoing communication with your company as you plan, deploy, and optimize your applications - ***Technical Account Manager (TAM).*** 
+***Technical Account Manager (TAM)*** is your designated technical point of contact who helps you onboard, provides advocacy and guidance to help plan and build solutions using best practices, coordinates access to subject matter experts, assists with case management, presents insights and recommendations on your AWS spend, workload optimization, and event management, and proactively keeps your AWS environment healthy.
+
+>A resource that provides guidance, architectural reviews, and ongoing communication with your company as you plan, deploy, and optimize your applications - ***Technical Account Manager (TAM).*** 
 
 
 # Code 
@@ -359,6 +371,8 @@ The ***AWS Resource Center*** a repository of tutorials, whitepapers, digital tr
 ***Resource Tags*** are user-defined label that has a key-value pair of variable character length. It is assigned to AWS resources as metadata for administration and management purposes.
 
 ***AWS Identity and Access Management (IAM)*** is a service that you can use to manage access to AWS services and resources. 
+
+***Access Analyzer*** helps you identify the resources in your organization and accounts, such as Amazon S3 buckets or IAM roles, shared with an external entity. This lets you identify unintended access to your resources and data, which is a security risk.
 
 ***IAM Identity Federation*** allows access to the AWS environment using a central single sign-on (SSO) set of credentials from third-party or corporate active directory. Federation uses open standards such as SAML2.0 to transact identity information between identity provider (IdP) the respective applications
 
