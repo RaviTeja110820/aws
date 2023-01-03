@@ -16,7 +16,18 @@ You can use Amazon S3 to host a static website. On a static website, individual 
 
 ## Create S3 Bucket
 
-To create S3 Bucket
-
+**To create S3 Bucket**
 1. Open the S3 Bucket in AWS Management Console
-2. Select   
+2. Click on Create Bucket
+   ![Create Bucket](./images/create-bucket.png)
+3. Enter the Bucket name that should be unique globally.
+   
+   ![Bucket Name](./images/bucket-name.png)
+4. Bucket Created Successfully
+   ![Successful Creation](./images/successful.jpg)
+
+**To Uploaded a website folder**
+
+1. Click Upload in the Bucket.
+2. Select Add Folder and upload the website folder from your Desktop. Wait for some time to successfully complete the upload.
+![Upolad Folder](./images/upload-folder.jpg)
