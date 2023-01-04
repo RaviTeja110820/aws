@@ -8,9 +8,8 @@ You can use Amazon S3 to host a static website. On a static website, individual 
 2. Uploaded a website folder
 3. Enabling static website host in properties section
 4. Entering 'index.html' in index document.
-5. Entering 'index.html' in index document.
-6. Paste aws s3 public bucket policy.
-7. Copy the url and paste it in the browser.
+5. Paste aws s3 public bucket policy.
+6. Copy the url and paste it in the browser.
    
 # setup
 
@@ -31,3 +30,10 @@ You can use Amazon S3 to host a static website. On a static website, individual 
 1. Click Upload in the Bucket.
 2. Select Add Folder and upload the website folder from your Desktop. Wait for some time to successfully complete the upload.
 ![Upolad Folder](./images/upload-folder.jpg)
+
+**To Enable static website host in properties section**
+
+1. In properties scrool down and click on edit static website hosting.
+   ![Properties](./images/properties.jpg)
+2. Enable the static website hosting and mention index.html as the default page of the website in index document. Save the changes.
+   ![Enable-Hosting](./images/enable-hosting.jpg)
