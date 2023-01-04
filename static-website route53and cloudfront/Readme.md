@@ -7,9 +7,18 @@ CloudFront caches content at edge locations for a period of time that you specif
 # steps
 
 1. Create a bucket
-2. 
-3. Uploaded a website folder
-4. Enabling static website host in properties section
-5. Entering 'index.html' in index document.
-6. Paste aws s3 public bucket policy.
-7. Copy the url and paste it in the browser.
+2. Create a CloudFront distribution
+3. Update the record sets for your domain and subdomain
+4. Check the log files
+
+# setup
+**To Create a Bucket**
+
+* Create a bucket with unique name. 
+- Uploaded a website folder
+* Enabling static website host in properties section
+- Entering 'index.html' in index document.
+* Paste aws s3 public bucket policy.
+- Copy the url and paste it in the browser.
+  
+**To create a CloudFront Distribution**

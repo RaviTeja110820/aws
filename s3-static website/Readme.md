@@ -77,5 +77,5 @@ You can use Amazon S3 to host a static website. On a static website, individual 
 **To Copy the url and paste it in the browser**
 
  Copy the bucket website endpoint and paste in the browser.
- 
-  
+
+  ![Webpage](./images/webpage.jpg)
