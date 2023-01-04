@@ -37,3 +37,45 @@ You can use Amazon S3 to host a static website. On a static website, individual 
    ![Properties](./images/properties.jpg)
 2. Enable the static website hosting and mention index.html as the default page of the website in index document. Save the changes.
    ![Enable-Hosting](./images/enable-hosting.jpg)
+
+> In Proeprties -> static website hosting -> copy the bucket website endpoint and paste it in your browser. then you will get Code AccessDenied, Because we havn't gave the public permissions.  
+
+
+**To Paste aws s3 public bucket policy**
+
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": [
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*"
+    }
+  ]
+}
+```
+1. Go to permissions and click on edit Block public access (bucket settings). 
+![Permissions](./images/permissions.jpg)
+*  now disable the all public access and save changes.
+
+![Disable](./images/disable.jpg)
+
+2. in the permissions click on edit in Bucket policy.
+   
+    ![Edit policy](./images/edit-policy.jpg)
+
+ * copy the above mentioned json code and paste in the policy and save changes.
+  > make sure that you must Replace the bucket name present in the json code with your bucket name.
+
+   ![Bucket policy](./images/bucket-policy.jpg)
+
+**To Copy the url and paste it in the browser**
+
+ Copy the bucket website endpoint and paste in the browser.
+ 
+  
