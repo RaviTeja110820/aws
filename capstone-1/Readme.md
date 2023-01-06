@@ -126,14 +126,57 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
 4. To check Installation is succesfull , go to /var/www/html . if files of wordpress are available, then it is done. 
 ![wordpress Files](./images/wordpress-files.jpg)
 
+## Linking Database with EC2
+ * Run The below commands to link database with Wordpress Server
+    
+        $ sudo yum install mysql
+        $ mysql -h <RDS_Endpoint_Link> -P 3306 -u <username> -p
+        
+        
+ * To Check Database is linked
+        
+        > show databases;
+        > use wordpressdb;
+        > show tables;  
+     
+
+    
+    
+
+
 ## To Access the WordPress
+   
+1. Copy the Public IP Address of Wordpress server we created and Paste it your Favourite Website.
 
-![wordpress Sigin in](./images/wordpress-sign.jpg)
 
-![wordpress Dashboard](./images/wordpress-dashboard.jpg)
+    ![wordpress Ip paste](./images/wordpress-ip-paste.jpg)
+
+2. Now click on letsgo, you need to enter 
+
+    * Database name     -> database(Rds Name you created with)
+    * Database username -> admin (The username while creating RDS)
+    * Database password -> admmin123 (RDS password while creating RDS)
+    * Database Host     -> Rds Enpoint link
+
+3. Then next -> it will Ask for username and password , after that you need to Relogin. 
+    ![wordpress Sigin in](./images/wordpress-sign.jpg)
+
+4. After click login -> you will be seeing a dashboard - **Welcome to WordPress!**
+
+    ![wordpress Dashboard](./images/wordpress-dashboard.jpg)
 
 ## To export the static assets into the S3 bucket.
+1. Create a S3 Bucket with Unique Name.
+2. Install aws cli
 
-![assets sync to s3](./images/s3-sync.jpg)
+       $ Sudo yum install awscli -y
 
+3. To configure Enter:
+   
+       $ aws configure
+4. Enter your Aws Access Key Id , Aws Secret Access Key, Region Name, Output Format(json) .
+    ![assets sync to s3](./images/s3-sync.jpg)
+5. To sync the files to S3 Bucket run this command:
+       
+       $ aws s3 sync /var/www/html/ s3://wordpress-assets-sync
 ![ s3 Bucket](./images/s3-bucket.jpg)
