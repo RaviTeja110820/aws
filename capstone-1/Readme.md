@@ -83,13 +83,47 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
 2. Connect to the instance using cmd or gitbash etc..
     
      * move the the folder where you saved the keypair and type this:
-    
-       > $ chmod 400 wordpress-tutorial-key.pem   
+    #
+         $ chmod 400 wordpress-tutorial-key.pem   
          $ ssh -i "N.virginia-key.pem" ec2-user@publicIpv4_of_EC2Instance 
 3. Wordpress Installation:
-    
-    
 
+    ### First we’ll check if there are any updates needed:
+    
+        $ sudo yum update -y
+
+    ### Then we install PHP
+        $ sudo amazon-linux-extras install -y php7.2
+
+    ### Next, install Apache
+        $ sudo yum install -y httpd
+
+    ### Start the Apache Service
+        $ sudo systemctl start httpd
+    
+    ### And make sure apache is always started when launching the instance
+        $ sudo systemctl enable httpd
+    **Configure permissions for ec2-user**:
+    ### Add the ec2-user to the apache group:
+        $ sudo usermod -a -G apache ec2-user
+    ### Log out with $ exit and log back in with the ssh command from above.Next, the permissions for the group must be changed for /var/www:
+        $ sudo chown -R ec2-user:apache /var/www
+    ### The write permissions and also all future directories must be set as well:
+        $ sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
+    ### And finally the same for the files:
+        $ find /var/www -type f -exec sudo chmod 0664 {} \;
+    **Installing the WP CLI**
+    ###
+        $ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+        $ php wp-cli.phar --info
+        $ chmod +x wp-cli.phar
+        $ sudo mv wp-cli.phar /usr/local/bin/wp
+    ### Now, check if the cli is available:
+        $ wp — info
+    **WordPress Installation**
+    ### Navigate to /var/www/html and run
+        $ wp core download
+4. To check Installation is succesfull , go to /var/www/html . if files of wordpress are available, then it is done. 
 ![wordpress Files](./images/wordpress-files.jpg)
 
 ## To Access the WordPress
