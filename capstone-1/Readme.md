@@ -31,13 +31,44 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
 
 ## To Create VPC with private and public Subnets:
 
-![VPC](./images/vpc.jpg)
+1. Goto VPC -> Create VPC -> Give name and use 10.0.0.0/16 as IPv4 CIDR block 
+   ![VPC CREATE](./images/vpc-create.jpg)
+
+2. Create subnet -> select the vpc which  is above created
+   
+    * Subnet-1 -> public subnet, 10.0.0.0/24
+    * Subnet-2 -> private subnet, 10.0.1.0/24
+![Create subnet](./images/create-subnet.jpg)
+  ![subnet-1](./images/subnet-1.jpg)
+  ![subnet-2](./images/subnet-2.jpg)
+1. Create InternetGateway and Attach it to vpc we created above.
+   ![Internetgateway](./images/igw.jpg)
+2. Create two route tables one for public and other for private. while creating select the vpc we created above.
+
+      * select public route -> edit subnet associations -> select public subnet
+      * select public route -> edit routes -> add route -> Destination - 0.0.0.0/0 , target - Internetgateway we created earlier
+      * select private route -> edit subnet associations -> select private subnet
+   
+    ![route table](./images/route-table.jpg)
+
 
 ## To creat Private RDS
 
-![RDS](./images/rds.jpg)
-
-![RDS Security Group](./images/rds-securitygrp.jpg)
+1. Goto RDS -> create Database
+   
+    * database creation method - Standard create
+    * Engine type - MySQL
+    * Templates - Free tier
+    * DB instance identifier - database
+    * Master username - admin
+    * Master password - admin123
+    * Disable Storage autoscaling.
+    * Virtual private cloud (VPC) - Wordpress-vpc
+    * Public access - **No**
+    * Additional Configuration -> Database options -> Intial databse name - **wordpressdb**
+    ![RDS](./images/rds.jpg)
+2. After Creating Database , Select database -> click on vpc Security Group -> edit inbound rules. 
+    ![RDS Security Group](./images/rds-securitygrp.jpg)
 
 ## To Creat EC2 and Installing Wordpress
 
