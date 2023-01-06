@@ -5,14 +5,29 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
 
 # Steps
 
-1. Creating VPC with private and public Subnets. 
-2. creating Private RDS
-3. Creating EC2 and Installing Wordpress
-4. Linking Database with EC2
-5. Accessing the WordPress
-6. export the static assets into the S3 bucket.
+1. Create IAM User with console And Programatic Access.
+2. Creating VPC with private and public Subnets. 
+3. creating Private RDS
+4. Creating EC2 and Installing Wordpress
+5. Linking Database with EC2
+6. Accessing the WordPress
+7. export the static assets into the S3 bucket.
 
 # Setup
+
+## Create IAM User with console And Programatic Access.
+
+1. Go to IAM Service In AWS Console
+2. Click on Users -> Create User
+3. Give the User name - WordpressUser, Enable Programmatic access and Aws Management Console Access.
+   > If You are using the Root Account for the Project Setup , then You can disable the Aws Management Console Access
+  ![IAM User](./images/iam-user.jpg)
+4. Next: Permissions -> click on Attach Existing Policies and select **AdministratorAccess** if you want to use it for project setup , else select **S3FullAccess** .
+  ![Policy](./images/policy.jpg) 
+5. Review the permissions and Create user.
+6. Download the CSV file and use it when you want to access AWS cli. It contains Access key id and Secret access key id.
+   ![download CSV](./images/download-csv.jpg)
+   
 
 ## To Create VPC with private and public Subnets:
 
