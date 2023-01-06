@@ -71,7 +71,24 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
     ![RDS Security Group](./images/rds-securitygrp.jpg)
 
 ## To Creat EC2 and Installing Wordpress
+1. Launch Instance - name it as **wordpress-server**
+   
+    * Amazon Machine Image - Amazon linux 2 AMI
+    * Instance type - t2.micro
+    * Create a kety pair or use existing
+    * In network settings -> select our vpc, select public subnet, Enable the auto assign public ip and create a security grp "wordpress-sg",  Add rules to it. Launch Instance.
+![network settings](./images/network-settings.jpg)
+![security ruless](./images/security-rules.jpg)
 
+2. Connect to the instance using cmd or gitbash etc..
+    
+     * move the the folder where you saved the keypair and type this:
+    
+       > $ chmod 400 wordpress-tutorial-key.pem   
+         $ ssh -i "N.virginia-key.pem" ec2-user@publicIpv4_of_EC2Instance 
+3. Wordpress Installation:
+    
+    
 
 ![wordpress Files](./images/wordpress-files.jpg)
 
