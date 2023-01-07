@@ -41,9 +41,9 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
 ![Create subnet](./images/create-subnet.jpg)
   ![subnet-1](./images/subnet-1.jpg)
   ![subnet-2](./images/subnet-2.jpg)
-1. Create InternetGateway and Attach it to vpc we created above.
+3. Create InternetGateway and Attach it to vpc we created above.
    ![Internetgateway](./images/igw.jpg)
-2. Create two route tables one for public and other for private. while creating select the vpc we created above.
+4. Create two route tables one for public and other for private. while creating select the vpc we created above.
 
       * select public route -> edit subnet associations -> select public subnet
       * select public route -> edit routes -> add route -> Destination - 0.0.0.0/0 , target - Internetgateway we created earlier
