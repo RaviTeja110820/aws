@@ -17,7 +17,8 @@
 # Setup
 
 ## To Install Jenkins
-1. Jenkins certified by Bitnami
+1. Create Instance -> click on Browse mor AMI's and search for Jenkins packaged by Bitnami,select it.
+   ![Jenkins Bitnami](./images/jenkinsBitnami.jpg)
 2. password = select instance ->Actions ->Instance settings -> Get system Log
 3. Copy the public Ip f Instance and paste in the Browser.
 4. Install Suggested plugins
