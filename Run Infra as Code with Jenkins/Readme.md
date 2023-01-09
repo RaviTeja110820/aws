@@ -19,13 +19,16 @@
 ## To Install Jenkins
 1. Create Instance -> click on Browse mor AMI's and search for Jenkins packaged by Bitnami,select it.
    ![Jenkins Bitnami](./images/jenkinsBitnami.jpg)
-2. password = select instance ->Actions ->Instance settings -> Get system Log
+2. select keypair, Reamining all leave as default and launch the instance.
+   
+3. password = select instance ->Actions ->Instance settings -> Monitor and troubleshoot -> Get system Log. Wait for some time to load the log files , then copy the password and username from the log file, As shown in below image.
    ![username and Password](./images/userpass.jpg)
-3. Copy the public Ip of Instance and paste in the Browser.
+4. Copy the public Ip of Instance and paste in the Browser. Now enter the copied username and password. Then you can see the jenkins Dashboard after sigin.
+   
    ![sigin](./images/sigin.jpg)
-4. Install Suggested plugins
-5. manage jenkins -> manage pugins : search for cludformation plugin and install withoout restart.
-6. git hub with cloudformation template, that contains s3 Bucket code.
+5. Install Suggested plugins - Git, Pipeline , Build
+6. manage jenkins -> manage plugins : search for cloudformation plugin and install without restart.
+7. create a git hub Repositry with cloudformation template, that contains s3 Bucket code.
    ```json
    {
     "AWSTemplateFormatVersion": "2010-09-09",
@@ -46,18 +49,20 @@
     ```
 
 ## Run Cft using Cft plugin
-1. In jenkins -> create new job -> name - cftdemo-jenkinsplugin -> FreestyleProject
+1. In jenkins -> create new job -> name : cftdemo-jenkinsplugin -> FreestyleProject
 2. In source code managemment Select git:
     * Paste the source code url in Repositry URL
     * credintals - Add jenkins, and give github username and Password.
     * after that select the credentials.
+    ![Source Code Management](./images/sourcecodemanagement.jpg)
 3.  Build Environment -> Select Create AWS Cloud Formation stack.
     * Cloud Formation recipe file -> filename.json that you used in 6th point
     * stack name -> jenkinscftplugin-s3
-    * Give AWS access key and secret access key- permission to s3 and clud formation only.
+    * Now create an IAM user with s3 and cloudFormation Permissions(Programmatic access) in AWS Console.
+    * Enter AWS access key and secret access key.
 4. click save.
 5.  click on Build Now, click on no-1 and select console output
-6.  Go to clud Formation in aws and check the output
+6.  Go to cloud Formation in aws and check the output. Click on events then you can see that s3 Bucket create complete. Now go to s3 Bucket and confirm that.
 
 ## Install AWS CLI
 1. search for AWS Systems Manager in console.
