@@ -20,7 +20,9 @@
 1. Create Instance -> click on Browse mor AMI's and search for Jenkins packaged by Bitnami,select it.
    ![Jenkins Bitnami](./images/jenkinsBitnami.jpg)
 2. password = select instance ->Actions ->Instance settings -> Get system Log
-3. Copy the public Ip f Instance and paste in the Browser.
+   ![username and Password](./images/userpass.jpg)
+3. Copy the public Ip of Instance and paste in the Browser.
+   ![sigin](./images/sigin.jpg)
 4. Install Suggested plugins
 5. manage jenkins -> manage pugins : search for cludformation plugin and install withoout restart.
 6. git hub with cloudformation template, that contains s3 Bucket code.
