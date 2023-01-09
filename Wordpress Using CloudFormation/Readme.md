@@ -24,5 +24,5 @@ When you make changes, CloudFormation tracks the template and executes the chang
 7. Now select created stack and view the Events.
 8. After everything successfully completed a message is displayed on events.
    ![Stack](./images/stack.jpg)
-9.  Goto EC2 , you can see a instance is created by Cloudformation. Copy the IPV4 address of instance and paste in browser, Then you can see the wordpress page signup and login into it. You can see the welcome page. Thats it.   
+9.  Goto EC2 , you can see a instance is created by Cloudformation. Copy the IPV4 address of instance and paste in browser Ipv4/wordpress, Then you can see the wordpress page signup and login into it. You can see the welcome page. Thats it.   
    
