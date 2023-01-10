@@ -17,3 +17,44 @@ Gitops Perodically syncs the running cluster with desired state in Git Repo.
 
 ## GitOps Flow
 ![GitOps Flow](./images/gitopsflow.jpg)
+
+## Jenkins Installation
+
+Jenkins is an open-source automation server that integrates with a number of AWS Services, including: AWS CodeCommit, AWS CodeDeploy, Amazon EC2 Spot, and Amazon EC2 Fleet. You can use Amazon Elastic Compute Cloud (Amazon EC2) to deploy a Jenkins application on AWS.
+
+1. Open AWS console , Navigate to Create EC2 and select ubuntu free tier or Amazon Linux 2 AMI and use t2.small.
+2. connect to instance using putty or ssh connect. 
+3. Use the ssh command to connect to the instance. You will specify the private key (.pem) file and ec2-user@public_dns_name.
+```console
+$ ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com
+```
+4. Ensure that your software packages are up to date on your instance by uing the following command to perform a quick software update:
+```console
+[ec2-user ~]$ sudo yum update –y
+```
+5. Add the Jenkins repo using the following command:
+```console
+[ec2-user ~]$ sudo wget -O /etc/yum.repos.d/jenkins.repo \
+    https://pkg.jenkins.io/redhat-stable/jenkins.repo
+```
+6. Import a key file from Jenkins-CI to enable installation from the package:
+```console
+[ec2-user ~]$ sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+[ec2-user ~]$ sudo yum upgrade
+```
+7. Install Java:
+```console
+[ec2-user ~]$ sudo amazon-linux-extras install java-openjdk11 -y
+```
+8. Enable the Jenkins service to start at boot:
+```console
+[ec2-user ~]$ sudo systemctl enable jenkins
+```
+9. Start Jenkins as a service:
+```console
+[ec2-user ~]$ sudo systemctl start jenkins
+```
+10. You can check the status of the Jenkins service using the command:
+```console
+[ec2-user ~]$ sudo systemctl status jenkins
+```
