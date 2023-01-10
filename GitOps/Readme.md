@@ -46,15 +46,18 @@ $ ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com
 ```console
 [ec2-user ~]$ sudo amazon-linux-extras install java-openjdk11 -y
 ```
-8. Enable the Jenkins service to start at boot:
+8. ```console
+sudo yum install jenkins -y
+```
+9. Enable the Jenkins service to start at boot:
 ```console
 [ec2-user ~]$ sudo systemctl enable jenkins
 ```
-9. Start Jenkins as a service:
+1. Start Jenkins as a service:
 ```console
 [ec2-user ~]$ sudo systemctl start jenkins
 ```
-10. You can check the status of the Jenkins service using the command:
+1.  You can check the status of the Jenkins service using the command:
 ```console
 [ec2-user ~]$ sudo systemctl status jenkins
 ```
