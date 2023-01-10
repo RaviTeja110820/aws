@@ -58,3 +58,10 @@ $ ssh -i /path/my-key-pair.pem ec2-user@ec2-198-51-100-1.compute-1.amazonaws.com
 ```console
 [ec2-user ~]$ sudo systemctl status jenkins
 ```
+* Jenkins is now installed and running on your EC2 instance. To configure Jenkins:
+  * Connect to http://<your_server_public_DNS>:8080 from your browser. You will be able to access Jenkins through its management interface:
+   ![Unlock Jenkins](./images/unlockjenkins.jpg)
+  * As prompted, enter the password found in /var/lib/jenkins/secrets/initialAdminPassword.Use the following command to display this password:
+   ```console
+   [ec2-user ~]$ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+   ```
