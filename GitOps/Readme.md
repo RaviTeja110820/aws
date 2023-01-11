@@ -91,3 +91,22 @@ To get Docker running on the AWS AMI you should follow the steps below:
    ```console
    [ec2-user ~]$ sudo usermod -a -G docker ec2-user
    ```
+
+## Jenkins jobs Setup
+1. goto jenkins -> manage jenkins -> manage credentials -> Global credentials -> Add credentials:
+    * username and password of dockerhub. ID = **dockerhub**
+    * username of github, password should be generated- github-> settings -> developer settings -> personal access -> Generate new token : note - test gitops, select repo, select admin:repo_hook , select notification, Generate token, copy token and paste in jenkins github password. ID = **github**
+2. New item -> name- buildimage, select pipeline.
+    * **pipeline**-> pipeline script from SCM:
+      * SCM - git , repositry url - https://github.com/saha-rajdeep/kubernetescode.git
+      * branch - */main
+    * save it 
+3. New item -> name- updatemanifest, select pipeline.
+   * This project is parameterized:
+      * Name - DOCKERTAG
+      * Default Value - latest
+   * **pipeline**-> pipeline script from SCM:
+      * SCM - git , repositry url - https://github.com/saha-rajdeep/kubernetesmanifest.git
+      * branch - */main
+   * save it 
+4. Go to buildimage job and click on Build and go to updatemanifest job and check out. Also go to your dockerhub and refresh the page, Then you see new image.   
