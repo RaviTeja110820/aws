@@ -7,11 +7,12 @@ Gitops Perodically syncs the running cluster with desired state in Git Repo.
 # Steps
 1. GitOps Flow
 2. Jenkins Installation
-3. Jenkins jobs Setup
-4. ArgoCD(GitOps) Installation
-5. ArgoCD(GitOps) Setup
-6. Automating GitHub to jenkins using webhook
-7. Zero touch end to end (nirvana!)
+3. Install Docker
+4. Jenkins jobs Setup
+5. ArgoCD(GitOps) Installation
+6. ArgoCD(GitOps) Setup
+7. Automating GitHub to jenkins using webhook
+8. Zero touch end to end (nirvana!)
 
 # Setup
 
@@ -70,4 +71,23 @@ sudo yum install jenkins -y
   * As prompted, enter the password found in /var/lib/jenkins/secrets/initialAdminPassword.Use the following command to display this password:
    ```console
    [ec2-user ~]$ sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+   ```
+## Installing Docer on EC2
+To get Docker running on the AWS AMI you should follow the steps below:
+
+1. Update the packages on your instance
+   ```console
+   [ec2-user ~]$ sudo yum update -y
+   ```
+2. Install Docker
+   ```console
+   [ec2-user ~]$ sudo yum install docker -y
+   ```
+3. Start the Docker Service
+   ```console
+   [ec2-user ~]$ sudo service docker start
+   ```
+4. Add the ec2-user to the docker group so you can execute Docker commands without using sudo.
+   ```console
+   [ec2-user ~]$ sudo usermod -a -G docker ec2-user
    ```
