@@ -20,7 +20,7 @@ Gitops Perodically syncs the running cluster with desired state in Git Repo.
 ![GitOps Flow](./images/gitopsflow.jpg)
 
 ## Jenkins Installation
-
+To install jenkins switch branch to Jenkins Installation in same repositry or follow this link - https://github.com/RaviTeja110820/aws/tree/Devops-Projects/Jenkins%20Installation 
 
 ## Installing Docer on EC2
 To get Docker running on the AWS AMI you should follow the steps below:
