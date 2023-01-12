@@ -1,6 +1,6 @@
 pipeline{
 	agent{
-        label 'linuxagent'
+        label 'Built-In Node'
     }
 	tools{
 		maven 'local_maven'
