@@ -13,6 +13,13 @@
 ## Setup Jenkins
 1. To install jenkins on EC2 switch to branch Jenkins Installation or follow the link - https://github.com/RaviTeja110820/aws/tree/Devops-Projects/Jenkins%20Installation
 
+## Setup & Configure Maven , Git
+1. Install git in the instance using the below command:
+   ```console
+    $ sudo yum install git
+    $ git --version
+   ```
+
 ## Setup Tomcat Server
 To Install Tomcat server on EC2 switch to branch Tomcat server Installation or follow th link - https://github.com/RaviTeja110820/aws/tree/Devops-Projects/Tomcat%20Server%20Installation
 
@@ -33,3 +40,4 @@ To Install Tomcat server on EC2 switch to branch Tomcat server Installation or f
            5. tomcat url - http//Ipadresss:8090/
            6. generate the snippet , copy it and paste in deploy to tomcat build section in pipeline code.
            7. The pipeline script is saved with name Jenkinsfile
+      > install plugin AWS CODE DEPLOY 
