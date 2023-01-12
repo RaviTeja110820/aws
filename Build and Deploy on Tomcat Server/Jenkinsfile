@@ -1,5 +1,5 @@
 pipeline{
-	agentagent {
+	agent{
         label 'linuxagent'
     }
 	tools{
