@@ -28,7 +28,7 @@
     # ./startup.sh       # to start the tomcat server
     # ./shutdown.sh      # to stop the tomcat server     
    ```
-4. The default port for tomcat server is 8080, and also if we run jenkins in same instance its default port will be also 8080. so to not cause any issue we will change the port of Tomcat server to 8090. Change port number in conf/server.xml file under tomcat home.
+4. The default port for tomcat server is 8080, and also if we run jenkins in same instance its default port will be also 8080. so to not cause any issue we will change the port of Tomcat server to 8090. Change port number in conf/server.xml file under tomcat home. Now also add a rule in instance security Group that coustm tcp - 8090 Anywhere
    ```console
    # cd /opt/tomcat/conf      # update port number in the "connecter port" field in server.xml & restart tomcat after configuration update
    # cd /opt/tomcat/bin
@@ -44,8 +44,14 @@
     # find  / -name context.xml
     ```
     i. After Running above command you get some related files , you need to edit all the files that were in the webapps directory.
-    ii. Edit the files ,open each and every file,  goto "value classname" line and comment it. in linux we can comment a line using <!-- some text -->.
-        ![comment](./images/comment.jpg)
+
+    ii. Edit the files ,open each and every file,  goto "value classname" line and comment it. in linux we can comment a line using 
+    ```console
+    <!-- Some Text -->
+    ```
+        
+    ![comment](./images/comment.jpg)
+
     iii. After that now shutdown and start the tomcat server.
 8. now go to Apache Tomcat page and click on Manager Apps. Then it asks for username and password.
     
@@ -61,4 +67,5 @@
     <user username="tomcat" password="s3cret" roles="manager-gui"/>           # tomcat
     ```
     ![Tomcat usres](./images/tomcat%20users.jpg)
+10. If you login with username tomcat then you can see below interface , thats it completed.
     ![Tomcat user login page](./images/username.jpg)
