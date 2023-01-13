@@ -6,3 +6,4 @@ Devops is a process of improving Delivery by ensuring that there is  a proper au
 
 
 ## Why Devops
+![Why Devops](./images/whydevops.jpg)
