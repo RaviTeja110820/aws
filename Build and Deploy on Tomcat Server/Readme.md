@@ -69,3 +69,5 @@ To Install Tomcat server on EC2 switch to branch Tomcat server Installation or f
 
 7. now go to browser and type ipaddress/8090/devopsweb then you will see your java application page, thats it done.
    ![Devopsweb page](./images/devopswebpage.jpg)
+
+8. To trigger the pipeline automatically when you commit and push code. follow this link - https://github.com/RaviTeja110820/aws/tree/Devops-Projects/Run%20Infra%20as%20Code%20with%20Jenkins  and see for trigger job
