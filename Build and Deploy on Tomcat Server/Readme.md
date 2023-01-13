@@ -41,3 +41,31 @@ To Install Tomcat server on EC2 switch to branch Tomcat server Installation or f
            6. generate the snippet , copy it and paste in deploy to tomcat build section in pipeline code.
            7. The pipeline script is saved with name Jenkinsfile
       > install plugin AWS CODE DEPLOY 
+
+3. install maven in ec2 instnace:
+    ```console
+    sudo -i
+
+    cd /opt/
+
+    sudo wget http://repos.fedorapeople.org/repos/dchen/apache-maven/epel-apache-maven.repo -O /etc/yum.repos.d/epel-apache-maven.repo
+
+    sudo sed -i s/\$releasever/6/g /etc/yum.repos.d/epel-apache-maven.repo
+
+    sudo yum install -y apache-maven
+
+    mvn –version
+    ```
+
+4. now open the jenkins-> manage jenkins -> Global tool configuration -> maven:
+   * Add maven
+   * name - local_maven  #what we mentioned in pipeline
+   * maven home - /opt/maven
+
+5. Now upload your java code in repositry. Refer to my code through this link https://github.com/RaviTeja110820/devopsweb/tree/test1
+
+6. Click on build now and if all stages are succeded you can see like.
+   ![pipelineBuild](./images/pipelineBuild.jpg)
+
+7. now go to browser and type ipaddress/8090/devopsweb then you will see your java application page, thats it done.
+   ![Devopsweb page](./images/devopswebpage.jpg)
