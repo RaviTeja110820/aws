@@ -1,5 +1,8 @@
 # Build and Deploy Artifacts on Tomcat Server
+when a developer commits code through git to github then a pipeline is triggered in the jenkins, then maven starts build the code, finally the arifact is deployed on tomcat server.
 
+
+![Architecture](./images/architecture.png)
 # Steps
 1. Setup Jenkins
 2. Setup & Configure Maven , Git
@@ -24,6 +27,8 @@
 To Install Tomcat server on EC2 switch to branch Tomcat server Installation or follow th link - https://github.com/RaviTeja110820/aws/tree/Devops-Projects/Tomcat%20Server%20Installation
 
 ## Integrating GitHub,Maven ,Tomcat Server with Jenkins
+
+## Create a CI and CD Job
 1. Login to Jenkins -> Create Item 
 2. name - build-n-deploy, select pipeline:
    * Description - Build the java application and deploy into tomcat server
@@ -63,6 +68,8 @@ To Install Tomcat server on EC2 switch to branch Tomcat server Installation or f
    * maven home - /opt/maven
 
 5. Now upload your java code in repositry. Refer to my code through this link https://github.com/RaviTeja110820/devopsweb/tree/test1
+
+## Test the Deployment.
 
 6. Click on build now and if all stages are succeded you can see like.
    ![pipelineBuild](./images/pipelineBuild.jpg)
