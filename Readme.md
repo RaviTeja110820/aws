@@ -11,3 +11,11 @@ Devops is a process of improving Delivery by ensuring that there is  a proper au
 ## Software Development Life Cycle (SDLC)
 
 it is a set of standard that is followed in the software industry to Design,Develop and test. The end goal is to delever a high quality product. 
+
+## Linux
+
+* Kernal has four primary Responsibilites:
+    * Device Management
+    * Memory Management
+    * Process Management
+    * Handling system calls
