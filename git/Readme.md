@@ -4,10 +4,17 @@ git is an open surce, distributed version control system disigned for speed and 
 
 git is a command line, GitHub is the web interface. GitHub is also a code hosting site, free for public repositories. Gitlab the open-source github, that enterprises can run on their own servers.
 # Version Control
-* A system that keeps records of your cahnges
-* Allows for collaborative development
-* Allows yu to know who made what changes and when
+* A system that keeps records of your cahnges.
+* Allows for collaborative development.
+* Allows yu to know who made what changes and when.
 * Allows you to revert any changes.
+
+Version Control:
+    * CVS - Centralized
+    * SVN - Centralized
+    * GIT - Distributed
+
+* **Fork** can create an entire copy of your Original Source
 
 # installation & configuration
 ```console
