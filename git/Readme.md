@@ -3,6 +3,8 @@
 git is an open surce, distributed version control system disigned for speed and efficiency
 
 git is a command line, GitHub is the web interface. GitHub is also a code hosting site, free for public repositories. Gitlab the open-source github, that enterprises can run on their own servers.
+> git is basically working locally, but github is something working like globally.
+
 # Version Control
 * A system that keeps records of your cahnges.
 * Allows for collaborative development.
@@ -18,6 +20,8 @@ Version Control:
 
 # installation & configuration
 ```console
+$ git --version         # to check git is installed or not
+$ git config --list     # previous configurations
 $ git config --global user.name "gdagdg"
 $ git config --global user.email "ks@visotech.com"
 ```
@@ -46,6 +50,8 @@ $ git checkout branch_name         # to move to other branch
 $ git diff                         # to see the exact changes
 $ git log                          # to see the commits 
 $ git reset --hard commit_id       # versoinig- going back to previous commit
+$ git log --oneline                # to see previous commits
+$ git checkout commit_id           # to go to that version
 ```
 
 > master , Feature Branch, Release Branch  
