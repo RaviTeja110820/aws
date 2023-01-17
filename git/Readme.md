@@ -42,8 +42,13 @@ $ ls .git                          # .git file is responsible for everything
 $ git add .                        # stage the changes
 $ git status                       # Review your changes
 $ git commit -m "intial version"   # commit the changes
+$ git push                         # to push the changes
+$ git branch -r                    # to view all the branches
 $ git branch                       # shows a list of local branches
+$ git branch branch_name           # to create a branch with a name   
 $ git checkout branch_name         # to move to other branch
+$ git merge branch_name            # to merge the branch
+$ git branch -d branch_name        # to delete a branch
 ```
 
 ```console
@@ -55,3 +60,11 @@ $ git checkout commit_id           # to go to that version
 ```
 
 > master , Feature Branch, Release Branch  
+
+* merge:
+  * fast-forward merge
+
+
+
+## To Visualize the Git
+follow this link -   http://git-school.github.io/visualizing-git/
