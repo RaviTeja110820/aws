@@ -110,7 +110,7 @@ pipeline {
 ![Triggerd Stack](./images/triggeredstack.jpg)
 1. goto job , click configure
 2. Build trigger -> select Github hook trigger for GITScm polling and click save.
-3. Goto your respositry , click on settings tab.
+3. Goto your repository , click on settings tab.
 4. click on webhooks -> Add webhook:
    - PayloadUrl - jenkins dashboard url/github-webhook/
    - content type - application/json

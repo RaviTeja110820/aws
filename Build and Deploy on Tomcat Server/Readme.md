@@ -1,5 +1,5 @@
 # Build and Deploy Artifacts on Tomcat Server
-when a developer commits code through git to github then a pipeline is triggered in the jenkins, then maven starts build the code, finally the arifact is deployed on tomcat server.
+when a developer commits code through git to github then a pipeline is triggered in the jenkins, then maven starts build the code and artifact is deployed on tomcat server.
 
 
 ![Architecture](./images/architecture.png)
