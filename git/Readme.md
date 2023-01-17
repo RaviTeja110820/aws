@@ -27,9 +27,25 @@ $ git config --global user.email "ks@visotech.com"
 $ touch hello-world.py             # create a file
 $ git init                         # Initialize git in current directory
 $ tree -a .git/objects             # show tree list of files
+```
+```console
+$ ls -la                           # to view hidden files
+$ ls .git                          # .git file is responsible for everything
+```
+
+
+```console
 $ git add .                        # stage the changes
 $ git status                       # Review your changes
 $ git commit -m "intial version"   # commit the changes
 $ git branch                       # shows a list of local branches
 $ git checkout branch_name         # to move to other branch
 ```
+
+```console
+$ git diff                         # to see the exact changes
+$ git log                          # to see the commits 
+$ git reset --hard commit_id       # versoinig- going back to previous commit
+```
+
+> master , Feature Branch, Release Branch  
