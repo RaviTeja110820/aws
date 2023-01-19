@@ -21,6 +21,42 @@ You can use interactive configuration tools to define provision and maintain you
 Ansible can be installed using Python Package Manager and Linux Repositories.
 
 ```console
-sudo -H pip install ansible
+sudo apt update
+sudo apt install python3.7
+curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+sudo apt install python3-pip
+python3 -m pip install --user ansible
+<!-- sudo -H pip install ansible -->
 ansible --version
 ```
+
+* Another method to install
+
+```console
+sudo apt-get update
+apt-get install ansible
+ansible --version
+```
+
+## setup
+
+```console
+sudo vim /etc/ansible/ansible.cfg  #uncomment host_key_chceking = false
+```
+
+1. To run using adhoc command
+    ```console
+        ansible -i inventory -m ping web1
+    ```
+2. to craete groups in inventory file : 
+   ```console
+   [websrvgrp]
+    web1
+    web2
+    ```
+3. To create groups of group in inventry file:
+   ```console
+    [dc_ohio:children]
+    websrvgrp
+    dbgrp
+   ```
