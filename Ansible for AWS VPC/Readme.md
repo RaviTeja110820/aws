@@ -41,7 +41,7 @@ In this project we are going to use ansible to automate aws vpc setup and also b
      *  select ec2 , NEXT
      *  Give full Administartor Access in policy, NEXT
      *  Role name : ansible-admin
-4. now select the control-machine instance -> click on actions -> instance settings -> modify IAM role : choose ansible-admin role and SAVE
+4. now select the control-machine instance -> click on actions -> security -> modify IAM role : choose ansible-admin role and SAVE
 5. Now check if the permissions is added or not.  Connect to contrl-machine instance and run below commands:
     ```console
     $ sudo apt install awscli -y
@@ -54,7 +54,7 @@ In this project we are going to use ansible to automate aws vpc setup and also b
    $ cd vpc-stack-vprofile
    ```
 
-2. goto ansible module index documentation, and navigate to cloud modules, there you can see lot of aws modules. For now select ec2_key-create or delete an ec2 key pair. go to examples. now run the below commands in control-machine instance.
+2. goto **ansible module index documentation**, and navigate to cloud modules, there you can see lot of aws modules. For now select ec2_key-create or delete an ec2 key pair. go to examples. now run the below commands in control-machine instance.
    ```console
    $ vim test-aws.yml
    ```
@@ -94,3 +94,31 @@ In this project we are going to use ansible to automate aws vpc setup and also b
   $ rm -rf *
   $ ls
   ```
+
+## Github
+
+1. create a repositry
+2. name : ansible-aws-vpc , public
+3. add a README file
+
+## Create Variables File for VPC & Baston host
+1. the variables files for both vpc and Baston host is to be uploaded to the created repositry. file names are: bastion_setup and vpc_setup
+  repositry link - https://github.com/RaviTeja110820/ansible-aws-vpc
+
+2. Now clone the repositry in control-machine instance. in the directory vpc-stack-vprofile. follow the below comand.
+   ```console
+   $ git clone  https://github.com/RaviTeja110820/ansible-aws-vpc
+   ```
+   ```console
+   $ ls
+   $ cd ansible-aws-vpc/
+   $ ls
+   ```
+## Create VPC Setup Playbook
+1. pull the changes and execute the command
+   ```console
+   $ cd ansible-aws-vpc/
+   $ git pull
+   $ ansible-playbook vpc-setup.yml
+   ```
+2. if above exection is success , then go and check in your aws console -> goto vpc. see if the vpc is created or not.
