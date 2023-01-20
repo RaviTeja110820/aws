@@ -41,7 +41,7 @@ ansible --version
 ## setup
 
 ```console
-sudo vim /etc/ansible/ansible.cfg  #uncomment host_key_chceking = false
+$ sudo vim /etc/ansible/ansible.cfg  #uncomment host_key_chceking = false
 ```
 
 1. To run host using adhoc command
@@ -92,6 +92,7 @@ $  ansible -i inventory  -m yum -a "name=httpd state=absent" web1 --become      
 ## Playbooks
 
 Playbooks are written in YAML format
+> YAML - Yet Another Markup language
 ```yaml
 ---
 - name: Setup WebServer                     # play
