@@ -122,3 +122,25 @@ In this project we are going to use ansible to automate aws vpc setup and also b
    $ ansible-playbook vpc-setup.yml
    ```
 2. if above exection is success , then go and check in your aws console -> goto vpc. see if the vpc is created or not.
+3. Run the below command to check saved id's:
+   ```console
+   $ ls
+   $ cat vars/output_vars
+   $ ls
+   $ git add. 
+   $ git config --global user.name xyz
+   $ git config --global user.email xyz@gmail.com
+   $ git commit -m "vars output"
+   $ git push
+   ```
+
+## Create Baston setup playbook
+1. now copy the private key of bastion and save to your local computer and connect to bastion host using the private key 
+ 
+ ```console
+ $ cat bastion-key.pem
+ ```
+2. connect to bastion instance
+   ```console
+   $ ssh -i Downloads/bastion-key.pem ec2-user@IP-address
+   ```
