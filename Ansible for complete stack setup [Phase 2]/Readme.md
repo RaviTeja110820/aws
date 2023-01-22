@@ -102,4 +102,12 @@ In this project we will Provision an application on EC2 with Ansible
 
    > vprofile stack instances can only accessed from the bastion host. so we need to login into bastion host and frome there we can login to vprofile innstances that where in private subnet.
 
-5. 
+
+## Errors to resolve
+
+```console
+$ sudo apt remove ansible -y
+$ sudo apt install python3-pip -y
+$ sudo pip3 install ansible
+$ ansible --version
+```
