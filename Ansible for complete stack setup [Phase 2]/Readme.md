@@ -57,6 +57,11 @@ In this project we will Provision an application on EC2 with Ansible
      *  Role name : ansible-admin
 5. now select the controller instance -> click on actions -> security -> modify IAM role : choose ansible-admin role and SAVE.
 
+6. Now check if the permissions is added or not.  Connect to contrl-machine instance and run below commands:
+    ```console
+    $ sudo apt install awscli -y
+    $ aws sts get-caller-identity   # it will return the what role it used.
+    ```
 
 ## AWS VPC and Bastion host using ansible playbooks
 
@@ -64,6 +69,7 @@ In this project we will Provision an application on EC2 with Ansible
 2. Now clone the repositry in the controller instance, follow the below commands. After cloning the repositry checkout to the branch vprofile-stack.
    ```console
    $ git clone https://github.com/RaviTeja110820/ansible-aws-vpc.git
+   $ cd ansible-aws-vpc/
    $ git branch -a       # to view where we are
    $ git checkout vprofile-stack  # to change the branch
    $ ls
