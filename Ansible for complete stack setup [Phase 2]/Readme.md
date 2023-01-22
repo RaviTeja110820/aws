@@ -76,3 +76,30 @@ In this project we will Provision an application on EC2 with Ansible
    $ ansible-playbook site.yml
    $ cat vars/output_vars
    ```
+
+## playbook to launch ec2, 
+
+1. To get the AMI id's go to this link - https://cloud-images.ubuntu.com/locator/ec2/ . 
+   > note: use which region you want the AMI while searching
+
+2. go to my repositry and check the code there
+3. we should not push the key pairs to repositry so we use .gitignore files.
+   ```console
+   $ vim .gitignore
+           *.pem             # it will neglect the pem files
+   $ git add .
+   $ git commit -m "ignoring keys"
+   $ git push
+   ```
+4. Now run ec2 stack playbook
+   ```console
+   $ ansible-playbook vpro-ec2-stack.yml
+   $ ansible-playbook bastion-instance.yml
+   $ git add .
+   $ git commit -m "security grp id"
+   $ git push
+   ```
+
+   > vprofile stack instances can only accessed from the bastion host. so we need to login into bastion host and frome there we can login to vprofile innstances that where in private subnet.
+
+5. 
