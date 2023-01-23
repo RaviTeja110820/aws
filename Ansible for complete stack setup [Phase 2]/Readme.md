@@ -117,3 +117,31 @@ $ sudo apt install python3-pip -y
 $ sudo pip3 install ansible
 $ ansible --version
 ```
+
+# Phase 3
+
+now we need to ssh into every instance, but they were in private subnet. There are two ways we can ssh into them, Fisrt one is we can connect to Bastion host , bastion host and remaining instances were in same vpc so we can create playbooks and run them in baston host to connect to instances. Second one is creating an Image of controller
+
+1. select contrller instance -> actions -> image -> create image
+   * Image name : controller-ami
+   * create image
+2. Goto AMIs -> Launch AMI:
+   * type : t2.micro
+   * networking: select the vprofile-vpc we created
+   * subnet: public subnet (pubsub2)
+   * security grp : Baston host sg
+   * Launch it
+   * name: vprofile-controller
+3. In instance after successfull creation of vprofile-controller delete the controller instance.
+4.  login to the vprofile-controller and check everything is to update.
+   ```console
+   $ git pull
+   ``` 
+5. Now we will try to connect to other instances:
+   ```console
+   $ cd ansible-aws-vpc/
+   $ git pull
+   $ ls
+   $ ssh -i loginkey_vpro.pem ubuntu@Private_ip_of_web01_instance
+   ```
+6. logout from the web01 instance
