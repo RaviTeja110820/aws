@@ -275,3 +275,13 @@ $ sleep 300
 $ chown tomcat.tomcat usr/local/tomcat8/webapps -R
 $ systemctl restart tomcat
 ```
+
+
+## verify
+
+Now login ngnix server and run command ifconfig and copy the ipaddress paste in browser.
+* username and password are same - admin_vp
+  
+```console
+$ vagrant destroy           # to delete the vagarnt file
+```
