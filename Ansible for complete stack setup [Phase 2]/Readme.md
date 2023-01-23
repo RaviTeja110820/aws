@@ -145,3 +145,29 @@ now we need to ssh into every instance, but they were in private subnet. There a
    $ ssh -i loginkey_vpro.pem ubuntu@Private_ip_of_web01_instance
    ```
 6. logout from the web01 instance
+7. check provision-stack directory in ansible-aws-vpc, if available go to it and execute the below commands:
+   ```console
+   $ cd provision-stack/
+   $ ls
+   $ ansible-playbook build.yml   # check the output in files directory
+   $ ansible-playbook set_host_ip_map.yml
+   $ cat /etc/hosts   # to check above command output
+   ```
+   ```console
+   $ ssh -i loginkey_vpro.pem ubuntu@web01       # we are using variable rather than priviate ip directly to ssh
+   ```
+   ```console
+   $ cd ansible-aws-vpc/
+   $ vim .gitignore    # include *.pem , *.sql , *.war
+   $ git add .
+   $ git commit -m ".gitignore"
+   $ git push
+   ```
+
+8. Final Execution
+   ```console
+   $ cd ansible-aws-vpc/provision-stack/
+   $ ls
+   $ ansible-playbook site.yml
+   ```
+   
