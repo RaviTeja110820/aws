@@ -59,7 +59,7 @@ goto keypairs and click on create new key pair:
  * file format : pem
  * create key pair
 
-## Launch Instance $ provision 
+## Launch Instance and provision 
 Go to EC2 and launch instance
 
 1. Instance for Database mysql:
