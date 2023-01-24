@@ -241,3 +241,46 @@ To build the articaft you need to download jdk and maven locally on your system.
       * vprofile-app-TG
       * check protocol-HTTP port-8080 and health-/login 
    * Create 
+
+3. copy the Endpoint of load balancer and go to dns of your Domain name:
+   * click on add
+     * type : CNAME
+     * host : vprofileapp
+     * pointsto : ELB endpoint
+     * save
+
+4. now go to browser and type http://vprofileapp.groophy.in
+   * username : admin_vp
+   * password : admin_vp
+
+
+## Autoscaling
+1. select application instance app01 -> actions -> image -> create image
+   * Image name : vprofile-app-image
+   * create image
+2. click on launch configuration in AutoScaling, create launch configuration:
+   * name: vprofile-app-LC
+   * select AMI: vprofile-app-image
+   * type : t2.micro
+   * IAM role : vprofile-artifact-storage-role
+   * security group : application security grp
+   * choose key pair
+   * save
+
+3. Create Auto scaling Group
+   * name : vprofile-app-ASG
+   * switch to launch configuration : select vprofile-app-LC
+   * default vpc, select all subnets
+   * enable load balancing, select application load balancing
+   * target group : vprofile-app-TG
+   * health check on load balancer
+   * desired 1, minimum 1, maximum 3
+   * scaling policies - target tracing scaling policy
+      * cpu utilization - 50 
+
+4. In instance after successfull creation of auto scaling grp, if an new instance is created from auto scaling grp then delete the vprofile-app01 instance.
+
+
+## Valiadtion
+
+Goto browser and type - https://vprofileapp.groophy.in
