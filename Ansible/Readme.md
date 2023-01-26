@@ -8,10 +8,23 @@ You can use interactive configuration tools to define provision and maintain you
 **Ansible** is an open source automation platform that is used for configuration management, application deployment task automation etc.. It can also do IT orchestration to run tasks in sequence and create a chain of events which must happen on several different servers or devices.
 > In simple terms ansible enables us to define our infrastructure as code in a simple declarative manner.
 
+In Ansible, "gathering facts" refers to the process of collecting information about a remote host's system and environment before executing tasks. This information is collected and stored in a variable called ansible_facts, which can then be used in playbooks and templates.
+
+When a playbook runs, by default, it gathers facts about the remote host before executing any tasks. This can be useful for tasks that require information about the system, such as determining the operating system version, available memory, or IP address.
+
+Some examples of information that can be gathered as facts are:
+Operating system and version
+Hostname
+IP addresses
+Memory and CPU information
+File system information
+Network information
+You can also disable fact gathering by setting gather_facts: false in the playbook or in the ansible.cfg file. This can be useful in situations where you do not need to gather facts and want to speed up playbook execution.
+
 **Advantages:**
-    * Ansible is an automation engine
+    *Ansible is an automation engine
     * An open-source platform,designed to automate IT functions
-    * can easily manage complex processes and functions
+    *can easily manage complex processes and functions
     * A resource-sensitive platform
     * Realiable,poerful, and secure.
 
