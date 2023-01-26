@@ -1,4 +1,4 @@
-# Autmated Setup of Multi Tier App Locally
+# Automated Setup of Multi Tier App Locally
 
 In this project we use bash scripts to provision the servers.
 
