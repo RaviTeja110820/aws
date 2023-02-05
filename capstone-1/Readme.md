@@ -5,7 +5,7 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
 
 # Steps
 
-1. Create IAM User with console And Programatic Access.
+1. Create IAM User with console And Programmatic Access.
 2. Creating VPC with private and public Subnets. 
 3. creating Private RDS
 4. Creating EC2 and Installing Wordpress
@@ -15,7 +15,7 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
 
 # Setup
 
-## Create IAM User with console And Programatic Access.
+## Create IAM User with console And Programmatic Access.
 
 1. Go to IAM Service In AWS Console
 2. Click on Users -> Create User
@@ -42,11 +42,11 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
   ![subnet-1](./images/subnet-1.jpg)
   ![subnet-2](./images/subnet-2.jpg)
 3. Create InternetGateway and Attach it to vpc we created above.
-   ![Internetgateway](./images/igw.jpg)
+   ![Internet gateway](./images/igw.jpg)
 4. Create two route tables one for public and other for private. while creating select the vpc we created above.
 
       * select public route -> edit subnet associations -> select public subnet
-      * select public route -> edit routes -> add route -> Destination - 0.0.0.0/0 , target - Internetgateway we created earlier
+      * select public route -> edit routes -> add route -> Destination - 0.0.0.0/0 , target - Internet gateway we created earlier
       * select private route -> edit subnet associations -> select private subnet
    
     ![route table](./images/route-table.jpg)
@@ -65,12 +65,13 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
     * Disable Storage autoscaling.
     * Virtual private cloud (VPC) - Wordpress-vpc
     * Public access - **No**
-    * Additional Configuration -> Database options -> Intial databse name - **wordpressdb**
+    * Additional Configuration -> Database options -> Initial database name - **wordpressdb**
     ![RDS](./images/rds.jpg)
 2. After Creating Database , Select database -> click on vpc Security Group -> edit inbound rules. 
     ![RDS Security Group](./images/rds-securitygrp.jpg)
 
 ## To Creat EC2 and Installing Wordpress
+
 1. Launch Instance - name it as **wordpress-server**
    
     * Amazon Machine Image - Amazon linux 2 AMI
@@ -102,14 +103,20 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
         $ sudo systemctl start httpd
     
     ### And make sure apache is always started when launching the instance
+
         $ sudo systemctl enable httpd
     **Configure permissions for ec2-user**:
+
     ### Add the ec2-user to the apache group:
         $ sudo usermod -a -G apache ec2-user
+
     ### Log out with $ exit and log back in with the ssh command from above.Next, the permissions for the group must be changed for /var/www:
+
         $ sudo chown -R ec2-user:apache /var/www
+
     ### The write permissions and also all future directories must be set as well:
         $ sudo chmod 2775 /var/www && find /var/www -type d -exec sudo chmod 2775 {} \;
+
     ### And finally the same for the files:
         $ find /var/www -type f -exec sudo chmod 0664 {} \;
     **Installing the WP CLI**
@@ -118,65 +125,69 @@ In this lab, you will create the VPC inside your AWS account. As you know, befor
         $ php wp-cli.phar --info
         $ chmod +x wp-cli.phar
         $ sudo mv wp-cli.phar /usr/local/bin/wp
+
     ### Now, check if the cli is available:
+
         $ wp — info
     **WordPress Installation**
+
     ### Navigate to /var/www/html and run
+
         $ wp core download
 4. To check Installation is succesfull , go to /var/www/html . if files of wordpress are available, then it is done. 
 ![wordpress Files](./images/wordpress-files.jpg)
 
 ## Linking Database with EC2
+
  * Run The below commands to link database with Wordpress Server
     
         $ sudo yum install mysql
         $ mysql -h <RDS_Endpoint_Link> -P 3306 -u <username> -p
-        
-        
+
+
  * To Check Database is linked
-        
+
+
         > show databases;
         > use wordpressdb;
         > show tables;  
-     
-
-    
-    
 
 
 ## To Access the WordPress
-   
-1. Copy the Public IP Address of Wordpress server we created and Paste it your Favourite Website.
+
+1. Copy the Public IP Address of Wordpress server we created and Paste it your Favorite Website.
 
 
     ![wordpress Ip paste](./images/wordpress-ip-paste.jpg)
 
-2. Now click on letsgo, you need to enter 
+2. Now click on lets go, you need to enter 
 
     * Database name     -> database(Rds Name you created with)
     * Database username -> admin (The username while creating RDS)
     * Database password -> admmin123 (RDS password while creating RDS)
-    * Database Host     -> Rds Enpoint link
+    * Database Host     -> Rds Endpoint link
 
 3. Then next -> it will Ask for username and password , after that you need to Relogin. 
-    ![wordpress Sigin in](./images/wordpress-sign.jpg)
+    ![wordpress Sign in](./images/wordpress-sign.jpg)
 
 4. After click login -> you will be seeing a dashboard - **Welcome to WordPress!**
 
     ![wordpress Dashboard](./images/wordpress-dashboard.jpg)
 
 ## To export the static assets into the S3 bucket.
+
 1. Create a S3 Bucket with Unique Name.
 2. Install aws cli
 
        $ Sudo yum install awscli -y
 
 3. To configure Enter:
-   
+
        $ aws configure
 4. Enter your Aws Access Key Id , Aws Secret Access Key, Region Name, Output Format(json) .
     ![assets sync to s3](./images/s3-sync.jpg)
 5. To sync the files to S3 Bucket run this command:
-       
+
        $ aws s3 sync /var/www/html/ s3://wordpress-assets-sync
+
 ![ s3 Bucket](./images/s3-bucket.jpg)
