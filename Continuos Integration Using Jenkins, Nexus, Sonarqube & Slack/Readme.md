@@ -129,6 +129,90 @@ we need launch three instance and we need to provision them by providing user da
      * Name : vpro-maven-central       # it stores maven dependencies
      * proxy -> remote storage : <https://repo1.maven.org/maven2/>          # from this url it downloads the maven dependencies and store it in this repository
      * click on create repository
-   * select maven2(group) 
+   * select Maven2(hosted)
+     * Name : vprofile-snapshot
+     * change version policy : snapshot
+     * create Repository
+   * select maven2(group)
      * Name : vpro-maven-group              # it groups the two repository
-     * Group -> member Repositories -> add vpro-maven-central and vprofile-release to members by clicking the arrows.
+     * Group -> member Repositories -> add vpro-maven-central, vprofile-release and vprofile-snapshot to members by clicking the arrows.
+     * click on create repository.
+
+> in source code, goto settings.xml file, you can see that there are variables that denotes the Repositories created in Nexus. Thus maven will get information about dependencies through them. 
+
+
+### Build & Nexus Integration Job
+
+1. Go To jenkins , click on create job:
+   * Name : Build
+   * select Freestyle project
+     * in Source code management select Git
+       * paste the repository url <https://github.com/devopshydclub/vprofile-project.git>
+       * Branch specifier : */ci-jenkins
+     * click on build ->  select Invoke top-level Maven targets:
+       * Goals : install -DskipTests              # it will build the artifact without running the tests
+       * click on Advanced
+       * In properties paste the below variables and change according to your nexus repository names and ip:
+
+         ```console
+         SNAP-REPO=vprofile-snapshot
+         NEXUS-USER=admin
+         NEXUS-PASS=admin123
+         RELEASE-REPO=vprofile-release
+         CENTRAL-REPO=vpro-maven-central
+         NEXUS-GRP-REPO=vpro-maven-group
+         NEXUSIP= mention privateIP of Nexus-server instance
+         NEXUSPORT=8081
+         ```
+
+         The above variables contains the nexus repository Names and also it password, username,private ip. 
+       * click on Settings file -> select Settings file in filesystem 
+         * File path : settings.xml 
+
+     * save it 
+
+2. click on Build Now
+   * check the logs
+   * to verify go to Nexus Repository -> browse -> select the repository then you can see the dependencies
+
+### Slack Integration
+
+1. create a workspace in the slack with the name Devops projects.
+2. Create a channel in the workspace with name vprofile-jenkins.
+3. Go to <https://api.slack.com/> to create a bot:
+   * click on start building:
+     * click on your Apps on top right -> select create your first App -> From scratch
+     * App name : Jenkins , select your workspace : Devops projects
+     * click on create App
+     * Now Go to OAuth & Permissions -> find Bot Token Scopes -> click on Add an OAuth Scope -> choose chat:write 
+     * now scroll up and click on install to workspace and say Allow. 
+     * now you will get an ***Bot User OAuth Token*** , copy it and save some where xoxb-4741728408631-4762841376435-GA3XyRadf3L3yKkpHY7nN4nV
+4. Go to vprofile-jenkins channel in slack and type app name that is @Jenkins and click on Add to channel . Thats it
+5. Lets integrate our slack bot with jenkins:
+   * goto jenkins and click on manage jenkins -> manage plugins : 
+     * search for slack notification and click on install without restart
+   * jenkins -> manage jenkins -> manage credentials : 
+     * jenkins -> Global credentials -> Add credentials:
+       * Kind : secret text
+       * Secret : paste the Bot User OAuth Token that you saved earlier
+       * ID : slack-token
+       * Description : slack-token
+       * click ok
+   * jenkins -> manage jenkins -> configure system -> slack settings:
+     * Enable custom slack app bot user
+     * click on save
+6. goto the build job that was created earlier :
+   * click on configure:
+     * goto post-build Actions and select slack notification : enable for Notify Build start, Notify success, Notify Unstable, Notify Every Failure.
+     * click on goto Advanced :
+       * Workspace : Devops projects
+       * credential : slack-token
+       * Channel : #vprofile-jenkins
+       * click on Test connection and if it shows success , everything ok else you need to very above steps again.
+     * goto post-build Actions and select Archive Artifact:
+       * Files to archive : **/*.war
+     * Save
+      >> Goto slack then you can see a message in the channel 
+   * click on Build now 
+
+7. Goto slack then you can see a Notifications in the channel
