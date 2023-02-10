@@ -1,4 +1,4 @@
-# Ansbile For Complete stack Setup
+# Ansible For Complete stack Setup
 
 In this project we will Provision an application on EC2 with Ansible
 
