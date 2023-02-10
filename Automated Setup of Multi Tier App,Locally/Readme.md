@@ -25,7 +25,7 @@ In this project we use bash scripts to provision the servers.
    $ cat Vagrantfile       # to view
    ```
 
-3. to execute follow below comands:
+3. to execute follow below commands:
 
    ```console
    $ vagrant up
@@ -34,10 +34,10 @@ In this project we use bash scripts to provision the servers.
 
 ## verify
 
-Now login ngnix server and run command ifconfig and copy the ip address paste in browser.
+Now login nginx server and run command ifconfig and copy the ip address paste in browser.
 
 * username and password are same - admin_vp
   
 ```console
-$ vagrant destroy           # to delete the vagarnt file
+$ vagrant destroy           # to delete the vagrant file
 ```

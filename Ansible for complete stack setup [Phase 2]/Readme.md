@@ -68,6 +68,7 @@ In this project we will Provision an application on EC2 with Ansible
 5. now select the controller instance -> click on actions -> security -> modify IAM role : choose ansible-admin role and SAVE.
 
 6. Now check if the permissions is added or not.  Connect to control-machine instance and run below commands:
+
     ```console
     $ sudo apt install awscli -y
     $ aws sts get-caller-identity   # it will return the what role it used.
@@ -86,7 +87,8 @@ In this project we will Provision an application on EC2 with Ansible
    $ ls
    $ ls vars/
    $ rm -rf vars/output_vars
-   ``` 
+   ```
+
 3. now we will start the execution
 
    ```console
@@ -97,7 +99,7 @@ In this project we will Provision an application on EC2 with Ansible
 
 ## playbook to launch ec2, 
 
-1. To get the AMI id's go to this link - <https://cloud-images.ubuntu.com/locator/ec2/> . 
+1. To get the AMI id's go to this link - <https://cloud-images.ubuntu.com/locator/ec2/> .
    > note: use which region you want the AMI while searching
 
 2. go to my repository and check the code there
@@ -135,7 +137,7 @@ $ ansible --version
 
 # Phase 3
 
-now we need to ssh into every instance, but they were in private subnet. There are two ways we can ssh into them, Fisrt one is we can connect to Bastion host , bastion host and remaining instances were in same vpc so we can create playbooks and run them in baston host to connect to instances. Second one is creating an Image of controller
+now we need to ssh into every instance, but they were in private subnet. There are two ways we can ssh into them, First one is we can connect to Bastion host , bastion host and remaining instances were in same vpc so we can create playbooks and run them in baston host to connect to instances. Second one is creating an Image of controller
 
 1. select controller instance -> actions -> image -> create image
    * Image name : controller-ami
@@ -193,4 +195,3 @@ now we need to ssh into every instance, but they were in private subnet. There a
    $ ls
    $ ansible-playbook site.yml
    ```
-   
