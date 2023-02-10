@@ -186,7 +186,7 @@ we need launch three instance and we need to provision them by providing user da
      * click on create App
      * Now Go to OAuth & Permissions -> find Bot Token Scopes -> click on Add an OAuth Scope -> choose chat:write 
      * now scroll up and click on install to workspace and say Allow. 
-     * now you will get an ***Bot User OAuth Token*** , copy it and save some where 
+     * now you will get an ***Bot User OAuth Token*** , copy it and save some where .
 4. Go to vprofile-jenkins channel in slack and type app name that is @Jenkins and click on Add to channel . Thats it
 5. Lets integrate our slack bot with jenkins:
    * goto jenkins and click on manage jenkins -> manage plugins : 
@@ -225,7 +225,7 @@ we need launch three instance and we need to provision them by providing user da
    * copy from Build
    * click ok
      * click on build -> goals : test
-     * Advanced settings : remove the archive, we dona need that war file now.
+     * Advanced settings : remove the archive, we don't need that war file now.
    * save
 2. click on build now. It will run the unit test cases. 
 3. lets integrate both build and test jobs. 
@@ -247,3 +247,10 @@ we need launch three instance and we need to provision them by providing user da
 6. Goto Integration Test job -> click on Build Now
 7. Now we have integrated three jobs.
 
+### Code Analysis
+
+1. Goto Jenkins -> click on manage jenkins -> manage plugins:
+   * select Checkstyle and Violations plugins
+   * install without restart
+2. click on create job:
+   * Name : 
