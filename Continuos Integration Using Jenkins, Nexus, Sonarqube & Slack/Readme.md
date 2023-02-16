@@ -253,4 +253,81 @@ we need launch three instance and we need to provision them by providing user da
    * select Checkstyle and Violations plugins
    * install without restart
 2. click on create job:
-   * Name : 
+   * Name : Code_Analysis
+   * select Freestyle project
+   * copy from Build
+   * click ok
+     * click on build -> Goals : checkstyle:checkstyle
+     * Advanced settings : remove the archive, we don't need that war file now, remove the post build actions also.
+     * ADD post build actions -> choose [Deprecated] Publish Checkstyle analysis results.
+     * Save
+   * click on Build Now
+  
+    > checkstyle has generated report , that is generated in checkstyle-result.xml file. to see the the report goto workspace -> target -> checkstyle-result.xml
+
+   * click on configure:
+     * post build actions -> select Report Violations:
+     * checkstyle - 10 100 100  : target/checkstyle-result.xml
+   * save
+   * click on build now
+   * you can see a graph representing warnings.
+3. lets integrate the code analysis:
+   * goto Integration Test job -> click on configure:
+     * click post build actions -> choose Build other projects
+     * projects to build : Code_Analysis  
+     * select trigger only if build is stable
+   * save
+
+### Sonarqube Integration 
+
+1. copy the public ip of Sonarqube-Server and paste in the browser , you can see the page.
+2. click on login:
+   * username : admin
+   * password : admin
+3. click on my account -> goto security :
+   * Generate tokens : sonartoken
+   * click on Generate
+   * copy the token and save it somewhere
+4. Goto jenkins -> click on manage jenkins -> manage plugins:
+   * select SonarQube Scanner and Sonar Quality Gates.
+   * Install without restart.
+5. jenkins -> click on manage jenkins -> Global tool configuration :
+   * SonarQube Scanner -> click on Add SonarQube Scanner:
+     * select the latest version
+     * Name : SONAR-4.4.2170      # Give the version name you selected here.
+   * save
+6. jenkins -> click on manage jenkins -> configure system :
+   * SonarQube servers:
+     * Environment variables : check mark the - Enable injection of SonarQube server configuration as build environment variables.
+     * click on Add SonarQube
+     * Name : Sonar_vprofile
+     * Server URL : <http://172.31.47.208>    # mention the private ip of sonarqube-Server.
+     * Server authentication token:
+     * click on Add -> choose jenkins # if you cant see jenkins save for now and open again 
+       * kind : Secret text
+       * Secret : paste the sonar token 
+       * ID : sonartoken
+       * Description : sonartoken
+       * save
+     * now choose the sonar token in Server authentication token.
+   * Quality Gates - Sonarqube -> click on Add Sonar instance:
+     * Name : sonar-vprofile
+     * Server URL : <http://172.31.47.208>    # mention the private ip of sonarqube-Server.
+     * SonarQube action token : paste the sonar token 
+   * save
+7. jenkins -> click on create new item:
+   * name : SonarScanner-CodeAnalysis
+   * select Freestyle project
+   * copy from Build
+   * click ok
+     * Goto Build -> Goals : install 
+     * Advanced settings : remove the archive, we don't need that war file now, remove the post build actions also.
+     * In Build -> click on Add build step:
+       * click on build -> Goals : checkstyle:checkstyle
+     * In Build -> click on Add build step:
+       * select Execute SonarQube Scanner
+       * in github Repository -> CI jenkins branch -> user data -> open sonar-analysis-properties and copy everything.
+       * Analysis properties : paste the data here earlier you copied from github
+     * save
+   * click on Build Now
+   * if it success goto slack check notifications and goto sonarqube server, there you can see the Analysis result
