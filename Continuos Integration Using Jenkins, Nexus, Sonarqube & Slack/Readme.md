@@ -331,3 +331,22 @@ we need launch three instance and we need to provision them by providing user da
      * save
    * click on Build Now
    * if it success goto slack check notifications and goto sonarqube server, there you can see the Analysis result
+   * goto sonarqube server:
+     * click on quality gates -> create:
+       * Name : vprofile-QualityGates
+       * save it 
+       * click on Add Condition -> choose overall code , Quality Gate fails when : Bugs , is greater than Value : 50
+     * goto projects -> click on vprofile-repo -> project settings -> click on Quality Gates : select vprofile-QualityGates
+8. now goto jenkins -> SonarScanner-CodeAnalysis -> configure:
+   * click on Add post build actions :
+     * select Quality Gates Sonarqube plugin 
+     * project key: vprofile
+     * job status : UNSTABLE
+   * save
+   * click on BUILD Now
+
+9. goto Code_Analysis -> configure now
+   * click on Add post-build action:
+     * choose Build other projects
+     * projects to build : choose SonarScanner-CodeAnalysis
+     * save  
