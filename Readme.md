@@ -94,7 +94,52 @@ There are several configuration management tools : Chef, Puppet, Ansible and sal
    ```
 
 5. lets write the ansible playbook to Install Nginx and restart Nginx:
-   
+
    ```console
    $ vim first-playbook.yml
    ```
+
+   ```yml
+   ---
+   - name: Install Nginx
+     hosts: all
+     become: true
+     tasks:
+       - name: Install Nginx
+         apt:
+           name: nginx
+           state: present
+       - name: Start Nginx
+         service:
+           name: nginx
+           state: started
+   ```
+
+   To execute the above playbook run the below command
+
+   ```console
+   $ ansible-playbook -i inventory first-playbook.yml
+   $ ansible-playbook -vvv -i inventory first-playbook.yml   # v -> verbosity (debugging)
+   ```
+
+6. Ansible Roles is efficient way of writing ansible playbooks that will only improve your efficiency to write complex playbooks.
+
+   ```console
+   $ mkdir second-playbook
+   $ cd second-playbook/
+   $ ansible-galaxy role init kubernetes
+   $ ls
+   $ ls kubernetes/
+   ```
+
+## Infrastructure as a code
+
+Infrastructure as code (IaC) is a software development practice that involves defining and provisioning infrastructure resources, such as servers, storage, and networking, in a declarative configuration language. This approach treats infrastructure as if it were software, and uses code to manage infrastructure resources in a more efficient and consistent manner.
+
+### Terraform
+
+Terraform is an open-source infrastructure as code (IaC) tool that enables developers to define and provision infrastructure resources such as servers, storage, networking, and application services in a declarative configuration language. It was created by HashiCorp and supports multiple cloud providers, including Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), and many others.
+
+API(Application Programming Interfaces) as code is based on the principles of Infrastructure as code (IaC) and is often used in conjunction with IaC tools like Terraform, Ansible, and Chef to automate the creation and management of API infrastructure resources like servers, networking, and security.
+
+1. Go to browser and search  for hashicorp terraform aws.
