@@ -143,3 +143,64 @@ Terraform is an open-source infrastructure as code (IaC) tool that enables devel
 API(Application Programming Interfaces) as code is based on the principles of Infrastructure as code (IaC) and is often used in conjunction with IaC tools like Terraform, Ansible, and Chef to automate the creation and management of API infrastructure resources like servers, networking, and security.
 
 1. Go to browser and search  for hashicorp terraform aws.
+2. To install terraform goto this link and choose your os <https://developer.hashicorp.com/terraform/downloads>
+3. to check terraform is installed or not:
+
+   ```console
+   $ terraform -version
+   ```
+
+4. if you are using aws provider than configure the aws cli :
+
+   ```console
+   $ aws configure
+   ```
+
+5. lets first write main.tf file which contains all the requirements
+
+   ```console
+   $ main.tf
+   ```
+
+   Goto this terraform documentation <https://registry.terraform.io/providers/hashicorp/aws/latest/docs>
+
+   ```tf
+   terraform {
+      required_providers {
+         aws = {
+            source  = "hashicorp/aws"
+            version = "~> 4.16"
+         }
+      }
+
+      required_version = ">= 1.2.0"
+   }
+
+   provider "aws" {
+      region  = "us-west-2"
+   }
+
+   resource "aws_instance" "app_server" {
+      ami           = "ami-830c94e3"
+      instance_type = "t2.micro"
+
+      tags = {
+         Name = "Terraform_Demo"
+      }
+   }
+
+   ```
+
+6. Terraform runs on four commands:
+
+   ```console
+   $ terraform init     # it initializes terraform
+   $ terraform plan     # it shows what the terraform going to do
+   $ terraform apply    # it will apply the changes
+   ```
+
+7. The outputs.tf file gives the outputs you needed after terraform apply like public and private ip details.
+
+   ```console
+   $ vim outputs.tf
+   ```
