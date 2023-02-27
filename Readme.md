@@ -20,7 +20,7 @@ it is a set of standard that is followed in the software industry to Design,Deve
   * Process Management
   * Handling system calls
 
-## Configuration Management 
+# Configuration Management 
 
 There are several configuration management tools : Chef, Puppet, Ansible and salt
 
@@ -32,7 +32,7 @@ There are several configuration management tools : Chef, Puppet, Ansible and sal
 
 > using Ansible Galaxy modules can be shared
 
-### Ansible
+## Ansible
 
 > Ansible supports linux (ssh) and windows (win RM). Ansible uses python programming language. using python we can create modules.
 
@@ -132,11 +132,11 @@ There are several configuration management tools : Chef, Puppet, Ansible and sal
    $ ls kubernetes/
    ```
 
-## Infrastructure as a code
+# Infrastructure as a code
 
 Infrastructure as code (IaC) is a software development practice that involves defining and provisioning infrastructure resources, such as servers, storage, and networking, in a declarative configuration language. This approach treats infrastructure as if it were software, and uses code to manage infrastructure resources in a more efficient and consistent manner.
 
-### Terraform
+## Terraform
 
 Terraform is an open-source infrastructure as code (IaC) tool that enables developers to define and provision infrastructure resources such as servers, storage, networking, and application services in a declarative configuration language. It was created by HashiCorp and supports multiple cloud providers, including Amazon Web Services (AWS), Microsoft Azure, Google Cloud Platform (GCP), and many others.
 
@@ -210,16 +210,16 @@ API(Application Programming Interfaces) as code is based on the principles of In
 
 ![terraform](./images/terraform.jpg)
 
-## Jenkins
+# Jenkins
 
 jenkins is a java based Application
 
-### Install Jenkins.
+## Install Jenkins.
 
 Pre-Requisites:
  - Java (JDK)
 
-### Run the below commands to install Java and Jenkins
+Run the below commands to install Java and Jenkins
 
 Install Java
 
@@ -253,7 +253,7 @@ sudo apt-get install jenkins
 * Security groups
 * Add inbound traffic rules as shown in the image (you can just allow TCP 8080 as well, in my case, I allowed `All traffic`.
 
-### Login to Jenkins using the below URL:
+ Login to Jenkins using the below URL
 
 <http://<ec2-instance-public-ip-address>:8080>    [You can get the ec2-instance-public-ip-address from your AWS EC2 console page]
 
@@ -284,7 +284,7 @@ sudo apt update
 sudo apt install docker.io
 ```
 
-### Grant Jenkins user and Ubuntu user permission to docker deamon.
+## Grant Jenkins user and Ubuntu user permission to docker deamon.
 
 ```console
 sudo su - 
@@ -298,9 +298,14 @@ Once you are done with the above steps, it is better to restart Jenkins. `<http:
 The docker agent configuration is now successful.
 
 
-## Tasks
+# Containers
 
-### ssh key generation
+
+
+
+# Tasks
+
+## ssh key generation
 
 1. type below command to check ssh is installed or not
   
