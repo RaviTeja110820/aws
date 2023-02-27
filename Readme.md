@@ -159,7 +159,7 @@ API(Application Programming Interfaces) as code is based on the principles of In
 5. lets first write main.tf file which contains all the requirements
 
    ```console
-   $ main.tf
+   $ vim main.tf
    ```
 
    Goto this terraform documentation <https://registry.terraform.io/providers/hashicorp/aws/latest/docs>
@@ -197,10 +197,157 @@ API(Application Programming Interfaces) as code is based on the principles of In
    $ terraform init     # it initializes terraform
    $ terraform plan     # it shows what the terraform going to do
    $ terraform apply    # it will apply the changes
+   $ terraform destroy  # to destroy everything 
    ```
 
 7. The outputs.tf file gives the outputs you needed after terraform apply like public and private ip details.
 
    ```console
    $ vim outputs.tf
+   ```
+
+8. Using terraform.tfstate file the terraform can track the changes in infrastructure. Never store the state file in source control . you should store state files remotely. Do not manipulate the state file.
+
+![terraform](./images/terraform.jpg)
+
+## Jenkins
+
+jenkins is a java based Application
+
+### Install Jenkins.
+
+Pre-Requisites:
+ - Java (JDK)
+
+### Run the below commands to install Java and Jenkins
+
+Install Java
+
+```console
+sudo apt update
+sudo apt install openjdk-11-jre
+```
+
+Verify Java is Installed
+
+```console
+java -version
+```
+
+Now, you can proceed with installing Jenkins
+
+```console
+curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update
+sudo apt-get install jenkins
+```
+
+**Note:** By default, Jenkins will not be accessible to the external world due to the inbound traffic restriction by AWS. Open port 8080 in the inbound traffic rules as show below.
+
+* EC2 > Instances > Click on Instance-ID
+* In the bottom tabs -> Click on Security
+* Security groups
+* Add inbound traffic rules as shown in the image (you can just allow TCP 8080 as well, in my case, I allowed `All traffic`.
+
+### Login to Jenkins using the below URL:
+
+<http://<ec2-instance-public-ip-address>:8080>    [You can get the ec2-instance-public-ip-address from your AWS EC2 console page]
+
+Note: If you are not interested in allowing `All Traffic` to your EC2 instance
+      1. Delete the inbound traffic rule for your instance
+      2. Edit the inbound traffic rule to only allow custom TCP port `8080`
+  
+After you login to Jenkins, 
+      - Run the command to copy the Jenkins Admin Password - `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`
+      - Enter the Administrator password
+
+Click on Install suggested plugins
+
+## Install the Docker Pipeline plugin in Jenkins:
+
+* Log in to Jenkins.
+* Go to Manage Jenkins > Manage Plugins.
+* In the Available tab, search for "Docker Pipeline".
+* Select the plugin and click the Install button.
+* Restart Jenkins after the plugin is installed.
+
+## Docker Slave Configuration
+
+Run the below command to Install Docker
+
+```console
+sudo apt update
+sudo apt install docker.io
+```
+
+### Grant Jenkins user and Ubuntu user permission to docker deamon.
+
+```console
+sudo su - 
+usermod -aG docker jenkins
+usermod -aG docker ubuntu
+systemctl restart docker
+```
+
+Once you are done with the above steps, it is better to restart Jenkins. `<http://<ec2-instance-public-ip>:8080/restart>`
+
+The docker agent configuration is now successful.
+
+
+## Tasks
+
+### ssh key generation
+
+1. type below command to check ssh is installed or not
+  
+   ```console
+   $ which ssh
+   ```
+
+2. now run below commands:
+
+   ```console
+   $ sudo -i        # goto root user
+   $ java -version
+   $ apt install ssh
+   $ /etc/init.d/ssh start     # enable the ssh
+   ```
+
+3. lets create a user:
+
+   ```console
+   $ useradd -m -d /home/jenkins jenkins
+   $ su jenkins
+   $ whoami
+   $ ssh-keygen
+   $ ls ~/.ssh/     # we have public and private key
+   ```
+
+4. to create authorized keys 
+
+   ```console
+   $ su jenkins
+   $ cd .ssh
+   $ ls
+   $ cat id_rsa.pub
+   $ cat id_rsa.pub > authorized_keys
+   $ ls
+   ```
+
+5. to send to remote server form host:
+
+   ```console
+   $ ssh-copy-id [user@]hostname
+   ```
+
+6. in remote server
+
+   ```console
+   $ sudo chown ubuntu:ubuntu /var/www
+   $ sudo chmod 755 /var/www
+   $ /etc/ssh/sshd_config    # password authentication yes
    ```
