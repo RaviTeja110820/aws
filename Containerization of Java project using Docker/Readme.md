@@ -131,7 +131,7 @@ we use docker compose to run all the containers
   $ docker-compose --version
   ```
 
-2.in previous repo goto compose folder you can find the docker-compose.yml. edit it according to your docker hub repository details.
+2. in previous repo goto compose folder you can find the docker-compose.yml. edit it according to your docker hub repository details.
   
   > in repository if you go through src -> main -> resources -> application.properties file. so make changes to the Docker file based on that. The containers name should be same as names mentioned in application.properties files also the ports.
 
