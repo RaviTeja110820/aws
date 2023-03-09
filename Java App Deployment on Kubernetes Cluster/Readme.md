@@ -103,3 +103,37 @@
    $ kubectl describe other_node name_of_worker_node | grep us-east-2
    $ kubectl label nodes name_of_worker_node zone=us-east-2b
    ```
+
+### kube secret for passwords
+
+   ```console
+   $ git clone 
+   $ echo -n "vprodbpass" | base64     # copy the encoded password of db. paste it in app-secret.yml
+   $ echo -n "guest" | bse64  # copy the encoded password of rabbit_mq. paste it in app-secret.yml
+   $ kubectl create -f app-secret.yaml
+   $ Kubectl get secret
+   $ kubectl describe secret
+   ```
+
+### DB Deployment Definition
+
+earlier we created a ebs volume of 3 GB . we need to attach a tag to it. GoTO volumes in aws console. Select the volume that matches with our volume id that saved eralier. click on tags -> Add tag -> Key : KubernetesCluster, Value : vprokube.devcan.in . we need give our cluster name there.
+
+```console
+$ kubectl create -f vprodbdep.yml
+$ kubectl get deploy
+$ kubectl get pod
+$ kubectl describe pod pod_name     # you can find any errors here if you get
+$ kubectl get pod
+```
+
+### to execute all defination files
+
+```console
+$ kubectl create -f .
+$ kubectl get deploy
+$ kubectl get pod 
+$ kubectl get svc            # copy the load balancer endpoint and paste in browser
+$ kubectl delete -f .
+$ kops delete cluster --name
+```
