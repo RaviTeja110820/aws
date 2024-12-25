@@ -83,7 +83,7 @@ In the ***S3 Intelligent-Tiering*** storage class, Amazon S3 monitors objects’
 >Data is organised in S3 into **Archives**, and **Vaults** are used to group Archives together. **Access policies** control who can access the data in Archives & Vaults.
 
 ***S3 Glacier*** is a low-cost storage class that is ideal for data archiving. You can retrieve objects stored in the S3 Glacier storage class within a few minutes to a few hours.
->AWS Console cannot be used to upload data onto Glacier. The console can only be used to create a Glacier vault which can be used to upload the data.%0D%0AFor more information on uploading data onto Glacie
+>AWS Console cannot be used to upload data onto Glacier. The console can only be used to create a Glacier vault which can be used to upload the data.
 
 The ***S3 Standard-IA*** storage class is ideal for data that is infrequently accessed but requires high availability when needed. Both S3 Standard and S3 Standard-IA store data in a minimum of three Availability Zones. S3 Standard-IA provides the same level of availability as S3 Standard but at a lower storage price. 
 
